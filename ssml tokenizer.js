@@ -55,7 +55,11 @@ export class SSMLTokenzier{
         let has_data = false
         while(this.reader.char){
             this.reader.readnext()
-            //console.log("SSMLSWITCH", this.reader.char)
+            
+            if(this.reader.char === undefined){
+                return false
+            }
+
             switch(this.reader.char.toLowerCase()){
                 case "b":{
                     temp = this._getModAndFloatScale("b")
