@@ -75,7 +75,7 @@ export class SSMLTagsData{
     setEffectTimbre(value){
         let check = this._checkForPlusMinus(value, "200%", "150%", "75%", "50%", "100%")
         if(check !== false){
-            this.prosody.volume = check
+            this.effect.timbre = check
             return true
         }else if(typeof value === "string"){
             value = parseInt(value)
@@ -91,6 +91,7 @@ export class SSMLTagsData{
     }
 
     setProsodyVolume(value){
+        console.log("volume", value)
         let check = this._checkForPlusMinus(value, "x-loud", "loud", "soft", "x-soft", "medium")
         if(check !== false){
             this.prosody.volume = check
