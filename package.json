@@ -1,12 +1,13 @@
 {
-    "name": "ssml_parser",
-    "version": "0.5",
+    "name": "biku_ssml_parser",
+    "version": "1.0.0",
     "type": "module",
-    "scripts": {
-        "start": "npx node-repl ./index.js",
-        "dev": "npx node-repl ./index.js"
-    },
-    "dependencies": {
-
-    }
+    "author": "Victor Liljeholm <Bikutaascript@gmail.com>",
+    "keywords": ["ssml", "shorthand", "bikubot"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition.git"
+      },
+    "license": "MIT"
+   
 }
