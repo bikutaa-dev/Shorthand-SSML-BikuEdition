@@ -69,7 +69,7 @@ IPA is represented by the letter i and followed by encapsulated in () the phonet
 ---
 ### _Language_
 
-Language is represented by the letter **_l_** and followed by encapsulated in **_() _**the language code for the language you want to use. The SSML equivalence is the **_&lt;lang xml:lang="fr-FR">_** tag.
+Language is represented by the letter **_l_** and followed by encapsulated in **_()_** the language code for the language you want to use. The SSML equivalence is the **_&lt;lang xml:lang="fr-FR">_** tag.
 
 
 * **Effect:** Changes what language the voice will use to try to speak the words.
@@ -282,7 +282,7 @@ pitch is represented by the letter **_p_** and supports either a following numer
     * **++ =** x-high
     * **+ =** high
     * **- =** low
-    * **– =** x-low 
+    * **-- =** x-low 
 
 * **Numeric:**
     * **default:** 100
@@ -298,7 +298,7 @@ pitch is represented by the letter **_p_** and supports either a following numer
 ---
 ### _Soft_
 
-soft speech is represented by the letter **_s_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect phonation="soft""> _**tag.
+soft speech is represented by the letter **_s_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect phonation="soft"">_** tag.
 
 
 
@@ -317,7 +317,7 @@ Rate is represented by the letter **_r_** and supports either a following numeri
     * **++ =** x-fast
     * **+ =** fast
     * **- =** slow
-    * **– =** x-slow
+    * **-- =** x-slow
 
 * **Numeric:**
     * **default:** 100
@@ -326,8 +326,8 @@ Rate is represented by the letter **_r_** and supports either a following numeri
 
 * **Example:**
     * **Characters:**  \
-        **#r–[A test]** is equal to **&lt;prosody rate=”x-slow”>A test&lt;/prosody>**
-    * **Numeric: \
+        **#r--[A test]** is equal to **&lt;prosody rate=”x-slow”>A test&lt;/prosody>**
+    * **Numeric:** \
         **#r150[A test]** is equal to **&lt;prosody rate=”150%”>A test&lt;/prosody>**
 
 ---
@@ -351,14 +351,14 @@ Rate is represented by the letter **_t_** and supports either a following numeri
 
 * **Example:**
     * **Characters:**  \
-        **#t–[A test]** is equal to **&lt;amazon:effect vocal-tract-length="50%">_A test&lt;/amazon:effect>**
-    * **Numeric: \
+        **#t--[A test]** is equal to **&lt;amazon:effect vocal-tract-length="50%">_A test&lt;/amazon:effect>**
+    * **Numeric:** \
         **#t50[A test]** is equal to **&lt;amazon:effect vocal-tract-length="50%">_A test&lt;/amazon:effect>**
 
 ---
 ### _Volume_
 
-Volume is represented by the letter **_v_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody volume=””> _**tag.
+Volume is represented by the letter **_v_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody volume=””>_** tag.
 
 
 * **Effect:** Changes the volume of the speech.
@@ -368,7 +368,7 @@ Volume is represented by the letter **_v_** and supports either a following nume
     * **++ =** x-loud
     * **+ =** loud
     * **- =** soft
-    * **– =** x-soft
+    * **-- =** x-soft
 
 * **Numeric:**
     * **default:** 10
@@ -384,14 +384,14 @@ Volume is represented by the letter **_v_** and supports either a following nume
 ---
 ### _Whisper_
 
-Is represented by the letter **_w_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect name="whispered"> _**tag.
+Is represented by the letter **_w_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect name="whispered">_** tag.
 
 
 
 * **Effect:** Makes the spoken words be spoken in a whispering voice. \
 
 * **Example:** \
-    **#w[A test]** is equal to **_&lt;amazon:effect name="whispered">_A test&lt;/amazon:effect>**
+    **#w[A test]** is equal to **_&lt;amazon:effect name="whispered">A test&lt;/amazon:effect>_**
 
 ---
 ## Special Effects

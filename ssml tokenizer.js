@@ -183,10 +183,10 @@ export class SSMLTokenzier{
         let data = "%" + letter 
         let complete_data = false
         let temp_array = []
-        //console.log("P peeking", this.reader.peak())
+        //console.log(letter, "peeking", this.reader.peak())
         while(this._isCharNumber(this.reader.peak()) || this.reader.peak() === "+" || this.reader.peak() === "-"){
             this.reader.readnext()
-            //console.log("P found NUMBER", this.reader.char)
+           //console.log(letter, "found", this.reader.char)
             data = data + this.reader.char
             complete_data = true  
         }

@@ -111,7 +111,7 @@ export class SSMLTagsData{
         }
     }
     setProsodyRate(value){
-        let check = this._checkForPlusMinus(value, "x-fast", "fast", "slow", "slow", "medium")
+        let check = this._checkForPlusMinus(value, "x-fast", "fast", "slow", "x-slow", "medium")
         if(check !== false){
             this.prosody.rate = check
             return true
