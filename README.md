@@ -1,6 +1,6 @@
 # _Shorthand SSML for Bikubot_
 
-
+---
 ## _How it works_
 
 Any change to how something is spoken start with **_#_** followed by the modifications you wanna do to the voice, these modifications are represented by a letter [as an example **_p_** for pitch] and for some modification the addition of numbers are needed to represent the scale of the modification. Finally the spoken word you want the modification to apply to is encapsulated by **_[ and ]_**. Because of this the characters **[ **and **] **are **reserved** and if used within a voice modification it needs to be a matching pair. \
@@ -16,10 +16,10 @@ The shorthand also support nested tags, so you could do something like **_#p150[
 The bot also does its best to fix any issues, such as if a value is too high it will set it to highest possible for that modification. \
  The possible modifications and their values can be found next.
 
-
+---
 ## _Modifications_
 
-
+---
 ### _Break_
 
 pitch is represented by the letter **_b_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;break time=””>_** tag. The break happens before any given text, if there is any in the encapsulating **_[]_** 
@@ -47,14 +47,14 @@ pitch is represented by the letter **_b_** and supports either a following numer
     **#b1.2[A test]** is equal to **&lt;break strength=”1200ms” />A test** \
     **#b.5[]** is equal to **&lt;break strength=”500ms” />**
 
-
+---
 ### _Expletive/Beep_
 
 Expletive/beep is represented by the letter e and does not need any additional data. The SSML equivalence is the**_&lt;say-as interpret-as="expletive">_** tag.
 
 * **Effect:** Beeps out the content.
 
-
+---
 ### _IPA (International Phonetic Alphabet)_
 
 IPA is represented by the letter i and followed by encapsulated in () the phonetic symbols for pronunciation. The SSML equivalence is the **_&lt;phoneme alphabet="ipa" ph=”">_** tag.
@@ -66,7 +66,7 @@ IPA is represented by the letter i and followed by encapsulated in () the phonet
 * **Example:** \
     **_#i(pɪˈkɑːn)[A test]_** is equal to **_&lt;phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan&lt;/phoneme>_**
 
-
+---
 ### _Language_
 
 Language is represented by the letter **_l_** and followed by encapsulated in **_() _**the language code for the language you want to use. The SSML equivalence is the **_&lt;lang xml:lang="fr-FR">_** tag.
@@ -271,7 +271,7 @@ Language is represented by the letter **_l_** and followed by encapsulated in **
     * **Numeric:** \
         **#l(en-us)[A test]** is equal to **&lt;lang xml:lang="en-US">A test&lt;/lang>**
 
-
+---
 ### _Pitch_
 
 pitch is represented by the letter **_p_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody pitch=””>_** tag. 
@@ -295,7 +295,7 @@ pitch is represented by the letter **_p_** and supports either a following numer
     * **Numeric:** \
         **#p150[A test]** is equal to **&lt;prosody pitch=”50%”>A test&lt;/prosody>**
 
-
+---
 ### _Soft_
 
 soft speech is represented by the letter **_s_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect phonation="soft""> _**tag.
@@ -304,7 +304,7 @@ soft speech is represented by the letter **_s_** and does not need any additiona
 
 * **Effect:** Makes the speech being spoken sound softer.
 
-
+---
 ### _Rate_
 
 Rate is represented by the letter **_r_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody rate=””>_** tag. 
@@ -330,7 +330,7 @@ Rate is represented by the letter **_r_** and supports either a following numeri
     * **Numeric: \
         **#r150[A test]** is equal to **&lt;prosody rate=”150%”>A test&lt;/prosody>**
 
-
+---
 ### _Timbre_
 
 Rate is represented by the letter **_t_** and supports either a following numeric value or **_+ , ++ , - , --._** The SSML equivalence is the **_&lt;amazon:effect vocal-tract-length="">_**  tag. 
@@ -355,7 +355,7 @@ Rate is represented by the letter **_t_** and supports either a following numeri
     * **Numeric: \
         **#t50[A test]** is equal to **&lt;amazon:effect vocal-tract-length="50%">_A test&lt;/amazon:effect>**
 
-
+---
 ### _Volume_
 
 Volume is represented by the letter **_v_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody volume=””> _**tag.
@@ -381,7 +381,7 @@ Volume is represented by the letter **_v_** and supports either a following nume
     * **Numeric: \
         **#v4[A test]** is equal to **&lt;prosody rate=”-6db”>A test&lt;/prosody>**
 
-
+---
 ### _Whisper_
 
 Is represented by the letter **_w_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect name="whispered"> _**tag.
@@ -393,12 +393,12 @@ Is represented by the letter **_w_** and does not need any additional data. The 
 * **Example:** \
     **#w[A test]** is equal to **_&lt;amazon:effect name="whispered">_A test&lt;/amazon:effect>**
 
-
+---
 ## Special Effects
 
 There are a few special effects that the shorthand supports. These sounds are represented by the effect name encapsulated by **_::_** , like **_::effectname::_** . Some of these will be affected by modifications as they are created with SSML and TTS, if so it will be noted.**_ _**Plans for the future is to allow streamers to add their own sounds to this system. These are all case insensitive.
 
-
+---
 ### _Breath_
 
 These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses the volume=”x-loud” for a chance to be heard.
@@ -411,7 +411,7 @@ These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses t
 * **_::BS::_** = &lt;amazon:breath duration="short" volume=”loud"/>
 * **_::BXS::_** = &lt;amazon:breath duration=”x-short" volume=”loud"/>
 
-
+---
 ### _Music notes_
 
 These are created by using pitch and the SSML expletive tag so might not be 100% accurate and will also be affected if part of a modification. The following notes are supported.
@@ -428,3 +428,4 @@ These are created by using pitch and the SSML expletive tag so might not be 100%
 * **_::A1#::_** = A1#
 * **_::B1::_** = B1
 * **_::C2::_** = C2
+---
