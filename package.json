@@ -1,0 +1,12 @@
+{
+    "name": "ssml_parser",
+    "version": "0.5",
+    "type": "module",
+    "scripts": {
+        "start": "npx node-repl ./index.js",
+        "dev": "npx node-repl ./index.js"
+    },
+    "dependencies": {
+
+    }
+}
