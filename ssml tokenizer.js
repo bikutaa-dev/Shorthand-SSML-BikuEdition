@@ -56,7 +56,7 @@ export class SSMLTokenzier{
         while(this.reader.char){
             this.reader.readnext()
             //console.log("SSMLSWITCH", this.reader.char)
-            switch(this.reader.char.toLocaleLowerCase()){
+            switch(this.reader.char.toLowerCase()){
                 case "b":{
                     temp = this._getModAndFloatScale("b")
                     if(temp){
