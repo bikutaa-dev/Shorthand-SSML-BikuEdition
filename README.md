@@ -1,6 +1,7 @@
   # **Shorthand SSML for Bikubot**
 - [**Shorthand SSML for Bikubot**](#shorthand-ssml-for-bikubot)
   - [_How it works_](#how-it-works)
+  - [_Short Notes_](#short-notes)
   - [_Modifications_](#modifications)
     - [_Break_](#break)
     - [_Expletive/Beep_](#expletivebeep)
@@ -20,18 +21,37 @@
 ## _How it works_
 
 Any change to how something is spoken start with **_#_** followed by the modifications you wanna do to the voice, these modifications are represented by a letter [as an example **_p_** for pitch] and for some modification the addition of numbers are needed to represent the scale of the modification. Finally the spoken word you want the modification to apply to is encapsulated by **_[ and ]_**. Because of this the characters **[** and **]** are **reserved** and if used within a voice modification it needs to be a matching pair. \
- \
+ 
 an example would be the SSML **_&lt;prosody pitch="+50%" rate="200%">This is a test&lt;/prosody>_** would in shorthand be **_#p150r200[this is a test]_**. Note that it's not a one to one for some things, as pitch in Normal SSML goes between -30 and +50, but shorthand only works with positive numbers so a conversion is done, where instead of starting at 0 the shorthand starts at 100 for pitch. \
- \
+ 
 You can also mix any modifications, as an example if you wanted to add a whisper to the above example the shorthand would be: **_#wp150r200[this is a test]_**. The order of the modification characters does not matter. So you could do it like **_#p150wr200[this is a test]_** and it would work the same. \
- \
+ 
 But if you would try to do something like **_#wr20r200[this is a test],_** that is to have the same modification more than once in the same **_tag_** it will only take the latest modification it sees in the tag so in the case it would seen the same as **_#wr200[this is a test]_**, the r20 will be thrown away. \
- \
+ 
 The shorthand also support nested tags, so you could do something like **_#p150[this is a #w[test]]._** All modification is also case insensitive so **_#P150L(Sv-Se)[test]_** is the same as **_#p150l(sv-se)[test]_**. \
- \
+ 
 The bot also does its best to fix any issues, such as if a value is too high it will set it to highest possible for that modification. \
  The possible modifications and their values can be found next.
 
+---
+## _Short Notes_
+* A voice modifications starts with **#** followed by one or more modification found below, then ending with the speech you want modified encapsulated in **[** and **]**.
+* The characters **[** and **]** are reserved characters and if used need to be used in pairs if when used outside their intended use case.
+* You can do nested modifications.
+    * **Example:** 
+      * **#p150[this is a nested pitch #w[whisper test]]** 
+      * **#p150[this is #w[deeply #r120s[nested and #t120[going deeper], and] now] back up]** 
+      * **#v11[#w[testing #s[softly] whispering] with a bit higher volume, #t50[ending with some timbre]]**
+* You can add more then one modification per voice modificiation, the order does not matter.
+    * **Example:** 
+      * **#p150w[this is a modifed pitch with whipser]** 
+      * **#wst50l(sv-se)[this soft and whispering swedish language voice with modified timbre]** 
+      * **#b.5t50p150r180[This starts with a 0.5s break and modified pitch, rate and timbre]** 
+* The modification part is case insensative.
+* Any modification value outside it's min or max range will be set to its min or max (whatever is closest).
+* Any modification value that is not valid will be set to a normalized default value.
+* Any characters that does not represent a modification will be ignored if part of the modification part.
+* A Faulty voice modification, like a space in the modification part or not correctly encapsulated will be read as normal.
 ---
 ## _Modifications_
 
