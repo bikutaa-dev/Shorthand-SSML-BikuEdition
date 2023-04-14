@@ -55,7 +55,7 @@ Expletive/beep is represented by the letter **_e_** and does not need any additi
 * **Effect:** Beeps out the content.
 
 * **Example:** \
-    **_#e[A test]_** is equal to **_&lt;say-as interpret-as="expletive">pecan&lt;/say-as>_**
+    **_#e[A test]_** is equal to **_&lt;say-as interpret-as="expletive">A test&lt;/say-as>_**
 
 ---
 ### _IPA (International Phonetic Alphabet)_
