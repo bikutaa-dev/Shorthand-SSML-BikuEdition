@@ -38,7 +38,7 @@ export class SSMLParser{
     }
     
     _parse(){
-        console.log("TOKEN ARRAY:", this.token_array)
+        //console.log("TOKEN ARRAY:", this.token_array)
         this.reader.initializeText(this.token_array)
 
         while(this.reader.char){
