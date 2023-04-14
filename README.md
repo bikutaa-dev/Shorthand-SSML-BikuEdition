@@ -50,9 +50,12 @@ pitch is represented by the letter **_b_** and supports either a following numer
 ---
 ### _Expletive/Beep_
 
-Expletive/beep is represented by the letter e and does not need any additional data. The SSML equivalence is the**_&lt;say-as interpret-as="expletive">_** tag.
+Expletive/beep is represented by the letter **_e_** and does not need any additional data. The SSML equivalence is the**_&lt;say-as interpret-as="expletive">_** tag.
 
 * **Effect:** Beeps out the content.
+
+* **Example:** \
+    **_#e[A test]_** is equal to **_&lt;say-as interpret-as="expletive">pecan&lt;/say-as>_**
 
 ---
 ### _IPA (International Phonetic Alphabet)_
