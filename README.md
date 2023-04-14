@@ -57,7 +57,7 @@ Expletive/beep is represented by the letter e and does not need any additional d
 ---
 ### _IPA (International Phonetic Alphabet)_
 
-IPA is represented by the letter i and followed by encapsulated in () the phonetic symbols for pronunciation. The SSML equivalence is the **_&lt;phoneme alphabet="ipa" ph=”">_** tag.
+IPA is represented by the letter **_i_** and followed by encapsulated in () the phonetic symbols for pronunciation. The SSML equivalence is the **_&lt;phoneme alphabet="ipa" ph=”">_** tag.
 	
 
 * **Effect: **Changes how the word(s) encapsulated in **_[]_** are spoken.** 
@@ -414,7 +414,7 @@ These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses t
 ---
 ### _Music notes_
 
-These are created by using pitch and the SSML expletive tag so might not be 100% accurate and will also be affected if part of a modification. The following notes are supported.
+These are created by using pitch and the SSML expletive tag so might not be 100% accurate and will also be affected if part of a modification. The following notes are supported. Only tested with the Brian voice.
 
 * **_::A0#::_** = A0#
 * **_::B0::_** = B0
