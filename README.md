@@ -36,7 +36,7 @@ The bot also does its best to fix any issues, such as if a value is too high it 
 ---
 ## _Short Notes_
 * A voice modifications starts with **#** followed by one or more modification found below, then ending with the speech you want modified encapsulated in **[** and **]**.
-* The characters **[** and **]** are reserved characters and if used need to be used in pairs if when used outside their intended use case.
+* The characters **[** and **]** are reserved characters and if used, need to be used in pairs when used outside their intended use case (marking what to modifiy).
 * You can do nested modifications.
     * **Example:** 
       * **#p150[this is a nested pitch #w[whisper test]]** 
