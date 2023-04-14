@@ -1,4 +1,20 @@
-# _Shorthand SSML for Bikubot_
+  # **Shorthand SSML for Bikubot**
+- [**Shorthand SSML for Bikubot**](#shorthand-ssml-for-bikubot)
+  - [_How it works_](#how-it-works)
+  - [_Modifications_](#modifications)
+    - [_Break_](#break)
+    - [_Expletive/Beep_](#expletivebeep)
+    - [_IPA (International Phonetic Alphabet)_](#ipa-international-phonetic-alphabet)
+    - [_Language_](#language)
+    - [_Pitch_](#pitch)
+    - [_Soft_](#soft)
+    - [_Rate_](#rate)
+    - [_Timbre_](#timbre)
+    - [_Volume_](#volume)
+    - [_Whisper_](#whisper)
+  - [Special Effects](#special-effects)
+    - [_Breath_](#breath)
+    - [_Music notes_](#music-notes)
 
 ---
 ## _How it works_
