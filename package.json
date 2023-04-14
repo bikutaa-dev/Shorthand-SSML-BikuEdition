@@ -1,6 +1,6 @@
 {
   "name": "biku_ssml_parser",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "type": "module",
   "author": "Victor Liljeholm <Bikutaascript@gmail.com>",
   "keywords": ["ssml", "shorthand", "bikubot"],
