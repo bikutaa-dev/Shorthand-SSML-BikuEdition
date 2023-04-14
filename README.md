@@ -9,7 +9,7 @@ an example would be the SSML **_&lt;prosody pitch="+50%" rate="200%">This is a t
  \
 You can also mix any modifications, as an example if you wanted to add a whisper to the above example the shorthand would be: **_#wp150r200[this is a test]_**. The order of the modification characters does not matter. So you could do it like **_#p150wr200[this is a test]_** and it would work the same. \
  \
-But if you would try to do something like **_#wr20r200[this is a test], _**that is to have the same modification more than once in the same **_tag_** it will only take the latest modification it sees in the tag so in the case it would seen the same as **_#wr200[this is a test], _**the r20 will be thrown away. \
+But if you would try to do something like **_#wr20r200[this is a test],_** that is to have the same modification more than once in the same **_tag_** it will only take the latest modification it sees in the tag so in the case it would seen the same as **_#wr200[this is a test]_**, the r20 will be thrown away. \
  \
 The shorthand also support nested tags, so you could do something like **_#p150[this is a #w[test]]._** All modification is also case insensitive so **_#P150L(Sv-Se)[test]_** is the same as **_#p150l(sv-se)[test]_**. \
  \
