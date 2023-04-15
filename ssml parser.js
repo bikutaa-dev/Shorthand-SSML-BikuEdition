@@ -8,7 +8,7 @@ export class SSMLParser{
         this.reader = new Reader()
         this.generator = new SSMLTagsData()
         this.ssml_regex =  /%((?:w|s|e)|(?:p|r|v|t)(?<scale>[\+]{1,2}|[-]{1,2}|\d+)?|b(?<time>\d*(?:\.\d+)?)|(?:i|l)\((?<encap>[^\)]*?)\))%/i
-        this.effect_regex = /(::(a0#|b0|c1|c1#|d1|d1#|e1|f1|f1#|a1#|b1|c2|bxl|bl|b|bs|bxs)::)/ig
+        this.effect_regex = /(::(a0#|b0|c1|c1#|d1|d1#|e1|f1|f1#|g1|g1#|a1|a1#|b1|c2|bxl|bl|b|bs|bxs)::)/ig
         this.breath_regex = /(::(bxl|bl|b|bs|bxs)::)/ig
         this.token_array = []
         this.output = ""
