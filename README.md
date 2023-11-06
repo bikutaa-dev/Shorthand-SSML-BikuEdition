@@ -1,5 +1,6 @@
   # **Shorthand SSML for Bikubot**
 - [**Shorthand SSML for Bikubot**](#shorthand-ssml-for-bikubot)
+  - [_What is this_](#what-is-this)
   - [_How it works_](#how-it-works)
   - [_Short Notes_](#short-notes)
   - [_Modifications_](#modifications)
@@ -15,9 +16,11 @@
     - [_Whisper_](#whisper)
   - [Special Effects](#special-effects)
     - [_Breath_](#breath)
-    - [_Music notes_](#music-notes)
 
 ---
+## _What is this_
+This is a custom and shortend way to control the TTS voices of Bikubot, this uses [AWS Polly SSML tags](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html) to control how the voice sounds, but shortend and simplfies the tags to make it easier and shorter to use. 
+
 ## _How it works_
 
 Any change to how something is spoken start with **_#_** followed by the modifications you wanna do to the voice, these modifications are represented by a letter [as an example **_p_** for pitch] and for some modification the addition of numbers are needed to represent the scale of the modification. Finally the spoken word you want the modification to apply to is encapsulated by **_[ and ]_**. Because of this the characters **[** and **]** are **reserved** and if used within a voice modification it needs to be a matching pair. \
@@ -450,21 +453,4 @@ These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses t
 * **_::BS::_** = &lt;amazon:breath duration="short" volume=”loud"/>
 * **_::BXS::_** = &lt;amazon:breath duration=”x-short" volume=”loud"/>
 
----
-### _Music notes_
-
-These are created by using pitch and the SSML expletive tag so might not be 100% accurate and will also be affected if part of a modification. The following notes are supported. Only tested with the Brian voice.
-
-* **_::A0#::_** = A0#
-* **_::B0::_** = B0
-* **_::C1::_** = C1
-* **_::C1#::_** = C1#
-* **_::D1::_** = D1
-* **_::D1#::_** = D1#
-* **_::E1::_** = E1
-* **_::F1::_** = F1
-* **_::F1#::_** = F1#
-* **_::A1#::_** = A1#
-* **_::B1::_** = B1
-* **_::C2::_** = C2
 ---
