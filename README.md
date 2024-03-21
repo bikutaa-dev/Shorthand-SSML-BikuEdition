@@ -118,7 +118,7 @@ Expletive/beep is represented by the letter **_e_** and does not need any additi
 IPA is represented by the letter **_i_** and followed by encapsulated in () the phonetic symbols for pronunciation. The SSML equivalence is the **_&lt;phoneme alphabet="ipa" ph=”">_** tag.
 	
 
-* **Effect: **Changes how the word(s) encapsulated in **_[]_** are spoken.** 
+* **Effect:** Changes how the word(s) encapsulated in **_[]_** are spoken.** 
 
 
 * **Example:** \
