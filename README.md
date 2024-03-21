@@ -99,7 +99,7 @@ Emphasis is represented by the letter **_m_** and needs a following **_- , + , +
     * **-** = reduced
 
 * **Example:** \
-    **_#m++[A test]_** is equal to **_&lt;emphasis level="strong">A test&lt;/say-as>_**
+    **_#m++[A test]_** is equal to **_&lt;emphasis level="strong">A test&lt;/say-as>_** \
     **_#m-[A test]_** is equal to **_&lt;emphasis level="reduced">A test&lt;/say-as>_**
 
 ---
