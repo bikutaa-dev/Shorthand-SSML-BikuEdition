@@ -12,7 +12,8 @@ export class SSMLTagsData{
         this.prosody = {
             rate: null,
             pitch: null,
-            volume: null
+            volume: null,
+            max_duration: null
         }
         this.pheome = {
             alphabet: "ipa",
@@ -28,6 +29,8 @@ export class SSMLTagsData{
         this.say_as = {
             interpret_as: null
         }
+
+        this.emphasis = null
     }
 
     setBreak(value){
@@ -47,6 +50,19 @@ export class SSMLTagsData{
             return false
         }
     }
+
+    setProsodyMaxDuration(value){
+        value = parseFloat(value) * 1000
+        if(isNaN(value)){ 
+            return false
+        }
+        
+        value = Math.floor(value)
+        value = this._checkForNumber(value, 0, 60000, 5000)  
+        this.prosody.max_duration = value
+        return true
+    }
+    
     setLang(lang){
         let valid_langs = validLangs()
         let language = valid_langs[lang.toLowerCase()]
@@ -72,6 +88,16 @@ export class SSMLTagsData{
         }
     }
 
+    setEmphasis(value){
+        let check = this._checkForPlusMinus(value, "strong", "moderate", "reduced", "reduced", "moderate")
+        if(check !== false){
+            this.emphasis = check
+            return true
+        }else{
+            return false
+        }
+    }
+
     setEffectTimbre(value){
         let check = this._checkForPlusMinus(value, "200%", "150%", "75%", "50%", "100%")
         if(check !== false){
@@ -81,7 +107,7 @@ export class SSMLTagsData{
             value = parseInt(value)
         }
 
-        check = this._checkForNumber(value, 50, 500, 100)
+        check = this._checkForNumber(value, 50, 200, 100)
         if(check !== false){
             this.effect.timbre = check + "%"
             return true
@@ -118,7 +144,7 @@ export class SSMLTagsData{
         }else if(typeof value === "string"){
             value = parseInt(value)
         }
-        check = this._checkForNumber(value, 20, 200, 100)
+        check = this._checkForNumber(value, 20, 2000, 100)
         if(check !== false){
             this.prosody.rate = `${check}%`
             return true
@@ -178,12 +204,13 @@ export class SSMLTagsData{
     }
 
     generateTags(){
+        this._generateBreak()
         this._generateProsody()
         this._generateEffect()
-        this._generateBreak()
-        this._generateSayAs()
         this._generatePhoneme()
         this._generateLanguage()
+        this._generateEmphasis()
+        this._generateSayAs()
         return this.constructed_tags
     }
 
@@ -200,6 +227,19 @@ export class SSMLTagsData{
             this.constructed_tags["end"] = "</lang>" + this.constructed_tags["end"]
         }
 
+    }
+    _generateEmphasis(){
+        let temp = "<emphasis"
+        let has_data = false
+        if(this.emphasis !== null){
+            has_data = true
+            temp = `${temp} level="${this.emphasis}">`
+        }
+
+        if(has_data){
+            this.constructed_tags["start"] = this.constructed_tags["start"] + `${temp}` 
+            this.constructed_tags["end"] = "</emphasis>" + this.constructed_tags["end"]
+        }
     }
 
     _generatePhoneme(){
@@ -289,6 +329,11 @@ export class SSMLTagsData{
             temp = `${temp} volume="${this.prosody.volume}"`
             has_data = true
         }
+
+        if(this.prosody.max_duration !== null){
+            temp = `${temp} amazon:max-duration="${this.prosody.max_duration}ms"`
+            has_data = true
+        } 
 
         if(has_data){
             this.constructed_tags["start"] = this.constructed_tags["start"] + temp + ">"

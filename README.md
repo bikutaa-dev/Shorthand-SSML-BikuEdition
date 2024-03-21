@@ -5,9 +5,11 @@
   - [_Short Notes_](#short-notes)
   - [_Modifications_](#modifications)
     - [_Break_](#break)
+    - [_Emphasis_](#emphasis)
     - [_Expletive/Beep_](#expletivebeep)
     - [_IPA (International Phonetic Alphabet)_](#ipa-international-phonetic-alphabet)
     - [_Language_](#language)
+    - [_Max Duration_](#max-duration)
     - [_Pitch_](#pitch)
     - [_Soft_](#soft)
     - [_Rate_](#rate)
@@ -63,9 +65,6 @@ The bot also does its best to fix any issues, such as if a value is too high it 
 
 pitch is represented by the letter **_b_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;break time=””>_** tag. The break happens before any given text, if there is any in the encapsulating **_[]_** 
 
-
-
-
 * **Effect:** Creates a break in the speech at the given point of the tag for the given amount of time in seconds..
 * **Characters:** \
     These represent the same preset values that normal SSML has.
@@ -80,11 +79,28 @@ pitch is represented by the letter **_b_** and supports either a following numer
     * **min:** 0.0
 
 * **Example:**
-    * **Characters:** \
-        **#b+[]** is equal to **&lt;break strength=”strong” />**
-* **Numeric:** \
-    **#b1.2[A test]** is equal to **&lt;break strength=”1200ms” />A test** \
-    **#b.5[]** is equal to **&lt;break strength=”500ms” />**
+  * **Characters:** \
+        **_#b+[]_** is equal to **_&lt;break strength=”strong” />_**
+  * **Numeric:** \
+        **_#b1.2[A test]_** is equal to **_&lt;break strength=”1200ms” />A test_** \
+        **_#b.5[]_** is equal to **_&lt;break strength=”500ms” />_**
+
+---
+### _Emphasis_
+
+Emphasis is represented by the letter **_m_** and needs a following **_- , + , ++_**. The SSML equivalence is the**_&lt;emphasis level="">_** tag.
+
+* **Effect:** Tries to (de)emphasis the word/sentence.
+
+* **Characters:** \
+    These represent the same preset values that normal SSML has.
+    * **++** = strong
+    * **+** = moderate
+    * **-** = reduced
+
+* **Example:** \
+    **_#m++[A test]_** is equal to **_&lt;emphasis level="strong">A test&lt;/say-as>_**
+    **_#m-[A test]_** is equal to **_&lt;emphasis level="reduced">A test&lt;/say-as>_**
 
 ---
 ### _Expletive/Beep_
@@ -304,14 +320,26 @@ Language is represented by the letter **_l_** and followed by encapsulated in **
   </tr>
 </table>
 
-
-
-
 * **Example:**
     * **Characters:** \
-        **#l(ja-jp)[A test]** is equal to **&lt;lang xml:lang="ja-JP">A test&lt;/lang>**
+        **_#l(ja-jp)[A test]_** is equal to **_&lt;lang xml:lang="ja-JP">A test&lt;/lang>_**
     * **Numeric:** \
-        **#l(en-us)[A test]** is equal to **&lt;lang xml:lang="en-US">A test&lt;/lang>**
+        **_#l(en-us)[A test]_** is equal to **_&lt;lang xml:lang="en-US">A test&lt;/lang>_**
+---
+### _Max Duration_
+
+max duration is represented by the letter **_d_** and needs a following numeric value. The SSML equivalance is the **_&lt;prosody amazon:max-duration="">_** tag. There is limits on how fast the speech can be speed up, and if it already fits within the duration no changes are made.
+
+* **Effect:** Tries to speed up the speech so it fits within the given time.
+
+* **Numeric:**
+    * **default:** 1.0
+    * **max:** 60.0
+    * **min:** 0.0
+
+* **Example**
+    **_#d5.3[A test]_** is equal to **_&lt;prosody amazon:max-duration="5300ms">A test&lt;/prosody>_** /
+    **_#d.5[A test]_** is equal to **_&lt;prosody amazon:max-duration="500ms">A test&lt;/prosody>_** /
 
 ---
 ### _Pitch_
@@ -319,6 +347,7 @@ Language is represented by the letter **_l_** and followed by encapsulated in **
 pitch is represented by the letter **_p_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody pitch=””>_** tag. 
 
 * **Effect:** Changes the pitch at which the spoken words are spoken at.
+
 * **Characters:** \
     These represent the same preset values that normal SSML has.
     * **++ =** x-high
@@ -333,18 +362,19 @@ pitch is represented by the letter **_p_** and supports either a following numer
 
 * **Example:**
     * **Characters:** \
-        **#p++[A test]** is equal to **&lt;prosody pitch=”x-high”>A test&lt;/prosody>**
+        **_#p++[A test]_** is equal to **_&lt;prosody pitch=”x-high”>A test&lt;/prosody>_**
     * **Numeric:** \
-        **#p150[A test]** is equal to **&lt;prosody pitch=”50%”>A test&lt;/prosody>**
+        **_#p150[A test]_** is equal to **_&lt;prosody pitch=”50%”>A test&lt;/prosody>_**
 
 ---
 ### _Soft_
 
 soft speech is represented by the letter **_s_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect phonation="soft"">_** tag.
 
-
-
 * **Effect:** Makes the speech being spoken sound softer.
+
+* **Example:** \
+    **_#s[A test]_** is equal to **_&lt;amazon:effect phonation="soft""A test&lt;/amazon:effect>_**
 
 ---
 ### _Rate_
@@ -368,15 +398,14 @@ Rate is represented by the letter **_r_** and supports either a following numeri
 
 * **Example:**
     * **Characters:**  \
-        **#r--[A test]** is equal to **&lt;prosody rate=”x-slow”>A test&lt;/prosody>**
+        **_#r--[A test]_** is equal to **_&lt;prosody rate=”x-slow”>A test&lt;/prosody>_**
     * **Numeric:** \
-        **#r150[A test]** is equal to **&lt;prosody rate=”150%”>A test&lt;/prosody>**
+        **_#r150[A test]_** is equal to **_&lt;prosody rate=”150%”>A test&lt;/prosody>_**
 
 ---
 ### _Timbre_
 
 Rate is represented by the letter **_t_** and supports either a following numeric value or **_+ , ++ , - , --._** The SSML equivalence is the **_&lt;amazon:effect vocal-tract-length="">_**  tag. 
-
 
 
 * **Effect:** Changes the timbre of voice.
@@ -393,9 +422,9 @@ Rate is represented by the letter **_t_** and supports either a following numeri
 
 * **Example:**
     * **Characters:**  \
-        **#t--[A test]** is equal to **&lt;amazon:effect vocal-tract-length="50%">_A test&lt;/amazon:effect>**
+        **_#t--[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
     * **Numeric:** \
-        **#t50[A test]** is equal to **&lt;amazon:effect vocal-tract-length="50%">_A test&lt;/amazon:effect>**
+        **_#t50[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
 
 ---
 ### _Volume_
@@ -419,9 +448,9 @@ Volume is represented by the letter **_v_** and supports either a following nume
 
 * **Example:**
     * **Characters:**  \
-        **#v+[A test]** is equal to **&lt;prosody volume=”loud”>A test&lt;/prosody>**
+        **_#v+[A test]_** is equal to **_&lt;prosody volume=”loud”>A test&lt;/prosody>_**
     * **Numeric: \
-        **#v4[A test]** is equal to **&lt;prosody rate=”-6db”>A test&lt;/prosody>**
+        **_#v4[A test]_** is equal to **_&lt;prosody rate=”-6db”>A test&lt;/prosody>_**
 
 ---
 ### _Whisper_
@@ -433,7 +462,7 @@ Is represented by the letter **_w_** and does not need any additional data. The 
 * **Effect:** Makes the spoken words be spoken in a whispering voice. \
 
 * **Example:** \
-    **#w[A test]** is equal to **_&lt;amazon:effect name="whispered">A test&lt;/amazon:effect>_**
+    **_#w[A test]_** is equal to **_&lt;amazon:effect name="whispered">A test&lt;/amazon:effect>_**
 
 ---
 ## Special Effects

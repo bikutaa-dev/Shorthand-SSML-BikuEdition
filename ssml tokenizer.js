@@ -93,6 +93,15 @@ export class SSMLTokenzier{
                     }
                     break
                 }
+                case "m":{
+                    temp = this._getModAndScale("m")
+                    if(temp){
+                        test_array = test_array.concat(temp)
+                        has_data = true 
+                    }
+                    break
+                }
+
                 case "r":{
                     temp = this._getModAndScale("r")
                     if(temp){
@@ -130,6 +139,14 @@ export class SSMLTokenzier{
                 case "e":{
                     test_array = test_array.concat("%e%")
                     has_data = true
+                    break
+                }
+                case "d":{
+                    temp = this._getModAndFloatScale("d")
+                    if(temp){
+                        test_array = test_array.concat(temp)
+                        has_data = true 
+                    }
                     break
                 }
                 case "[":{

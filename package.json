@@ -3,12 +3,15 @@
   "version": "1.0.8",
   "type": "module",
   "author": "Victor Liljeholm <Bikutaascript@gmail.com>",
-  "keywords": ["ssml", "shorthand", "bikubot"],
+  "keywords": [
+    "ssml",
+    "shorthand",
+    "bikubot"
+  ],
   "repository": {
-      "type": "git",
-      "url": "https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition.git"
-    },
+    "type": "git",
+    "url": "https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition.git"
+  },
   "license": "MIT",
   "main": "ssml parser.js"
-   
 }
