@@ -467,7 +467,7 @@ Is represented by the letter **_w_** and does not need any additional data. The 
 ---
 ## Special Effects
 
-There are a few special effects that the shorthand supports. These sounds are represented by the effect name encapsulated by **_::_** , like **_::effectname::_** . Some of these will be affected by modifications as they are created with SSML and TTS, if so it will be noted.**_ _**Plans for the future is to allow streamers to add their own sounds to this system. These are all case insensitive.
+There are a few special effects that the shorthand supports. These sounds are represented by the effect name encapsulated by **_--_** , like **_--effectname--_** . Some of these will be affected by modifications as they are created with SSML and TTS, if so it will be noted.**_ _**Plans for the future is to allow streamers to add their own sounds to this system. These are all case insensitive.
 
 ---
 ### _Breath_
@@ -476,10 +476,10 @@ These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses t
 
 
 
-* **_::BXL::_** = &lt;amazon:breath duration="x-long" volume="x-loud"/>
-* **_::BL::_** = &lt;amazon:breath duration="long" volume=”x-loud"/>
-* **_::B::_** = &lt;amazon:breath duration="medium" volume=”loud"/>
-* **_::BS::_** = &lt;amazon:breath duration="short" volume=”loud"/>
-* **_::BXS::_** = &lt;amazon:breath duration=”x-short" volume=”loud"/>
+* **_--BXL--_** = &lt;amazon:breath duration="x-long" volume="x-loud"/>
+* **_--BL--_** = &lt;amazon:breath duration="long" volume=”x-loud"/>
+* **_--B--_** = &lt;amazon:breath duration="medium" volume=”loud"/>
+* **_--BS--_** = &lt;amazon:breath duration="short" volume=”loud"/>
+* **_--BXS--_** = &lt;amazon:breath duration=”x-short" volume=”loud"/>
 
 ---
