@@ -487,7 +487,7 @@ These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses t
 
 ### _Tones_
 
-This is a cheat sheet on how to create tone sounding sounds, that was created by a community memeber [Nowrench](https://x.com/NoWrench).
+This is a cheat sheet on how to create tone sounding sounds by using the Expletive/Beep tag, that was created by a community memeber [Nowrench](https://x.com/NoWrench).
 ![TTS-Melody-Guide](https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition/assets/64921696/53866c05-31bd-4ca0-af25-2113acb58d29)
 
 
