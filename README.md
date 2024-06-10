@@ -18,6 +18,7 @@
     - [_Whisper_](#whisper)
   - [Special Effects](#special-effects)
     - [_Breath_](#breath)
+    - [_Tones_](#tones)
 
 ---
 ## _What is this_
