@@ -394,7 +394,7 @@ Rate is represented by the letter **_r_** and supports either a following numeri
 
 * **Numeric:**
     * **default:** 100
-    * **max:** 200
+    * **max:** 2000
     * **min:** 20
 
 * **Example:**
