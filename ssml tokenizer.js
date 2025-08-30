@@ -5,7 +5,6 @@ export class SSMLTokenzier{
         this.reader = new Reader(txt)
         this.text = txt
         this.token_array = []
-        this.accaptable_modifiers = ["p", "t", "r"]
         this.startedSSML = false
         this.char = this.reader.read()
     }
@@ -62,7 +61,7 @@ export class SSMLTokenzier{
 
             switch(this.reader.char.toLowerCase()){
                 case "b":{
-                    temp = this._getModAndFloatScale("b")
+                    temp = this._letterB()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true
@@ -70,7 +69,7 @@ export class SSMLTokenzier{
                     break
                 }
                 case "i":{
-                    temp = this._getModAndEncap("i")
+                    temp = this._letterI()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true
@@ -78,7 +77,7 @@ export class SSMLTokenzier{
                     break
                 }
                 case "l":{
-                    temp = this._getModAndEncap("l")
+                    temp = this._letterL()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true
@@ -86,7 +85,7 @@ export class SSMLTokenzier{
                     break
                 }
                 case "p":{
-                    temp = this._getModAndScale("p")
+                    temp = this._letterP()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true
@@ -94,16 +93,16 @@ export class SSMLTokenzier{
                     break
                 }
                 case "m":{
-                    temp = this._getModAndScale("m")
+                    temp = this._letterM()
                     if(temp){
                         test_array = test_array.concat(temp)
-                        has_data = true 
+                        has_data = true
                     }
                     break
                 }
 
                 case "r":{
-                    temp = this._getModAndScale("r")
+                    temp = this._letterR()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true 
@@ -111,7 +110,7 @@ export class SSMLTokenzier{
                     break
                 }
                 case "v":{
-                    temp = this._getModAndScale("v")
+                    temp = this._letterV()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true 
@@ -119,7 +118,7 @@ export class SSMLTokenzier{
                     break
                 }
                 case "t":{
-                    temp = this._getModAndScale("t")
+                    temp = this._letterT()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true 
@@ -127,22 +126,31 @@ export class SSMLTokenzier{
                     break
                 }
                 case "w":{
-                    test_array = test_array.concat("%w%")
-                    has_data = true
+                    temp = this._letterW()
+                    if(temp){
+                        test_array = test_array.concat(temp)
+                        has_data = true
+                    }
                     break
                 }
                 case "s":{
-                    test_array = test_array.concat("%s%")
-                    has_data = true
+                    temp = this._letterS()
+                    if(temp){
+                        test_array = test_array.concat(temp)
+                        has_data = true
+                    }
                     break
                 }
                 case "e":{
-                    test_array = test_array.concat("%e%")
-                    has_data = true
+                    temp = this._letterE()
+                    if(temp){
+                        test_array = test_array.concat(temp)
+                        has_data = true
+                    }
                     break
                 }
                 case "d":{
-                    temp = this._getModAndFloatScale("d")
+                    temp = this._letterD()
                     if(temp){
                         test_array = test_array.concat(temp)
                         has_data = true 
@@ -164,6 +172,216 @@ export class SSMLTokenzier{
                     return false
                 }
                 
+            }
+        }
+    }
+
+    _letterM() {
+        switch(this.reader.peak()){
+            case "e":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("me")
+                if(temp){
+                    return temp
+                }
+            }
+            case "i":{
+                this.reader.readnext()
+                return ["%mi%"]
+            }
+            case "u":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("mu")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterE() {
+        switch(this.reader.peak()){
+            case "x":{
+                this.reader.readnext()
+                return ["%ex%"]
+            }
+            case "m":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("em")
+                if(temp){
+                    return temp
+                }
+            }
+            case "c":{
+                this.reader.readnext()
+                let temp = this._getModAndFloatScale("ec")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterI(){
+        switch(this.reader.peak()){
+            case "p":{
+                this.reader.readnext()
+                let temp = this._getModAndEncap("ip")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterB() {
+        switch(this.reader.peak()){
+            case "r":{
+                this.reader.readnext()
+                let temp = this._getModAndFloatScale("br")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterL(){
+        switch(this.reader.peak()){
+            case "a":{
+                this.reader.readnext()
+                let temp = this._getModAndEncap("la")
+                if(temp){
+                    return [temp]
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterP(){
+        switch(this.reader.peak()){
+            case "i":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("pi")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterR(){
+        switch(this.reader.peak()){
+            case "a":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("ra")
+                if(temp){
+                    return temp
+                }
+            }
+            case "e":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("re")
+                if(temp){
+                    return temp
+                }
+            }
+            case "o":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("ro")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterV(){
+        switch(this.reader.peak()){
+            case "o":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("vo")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterT(){
+        switch(this.reader.peak()){
+            case "i":{
+                this.reader.readnext()
+                let temp = this._getModAndScale("ti")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterW(){
+        switch(this.reader.peak()){
+            case "h":{
+                this.reader.readnext()
+                return ["%wh%"]
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterS(){
+        switch(this.reader.peak()){
+            case "o":{
+                this.reader.readnext()
+                return ["%so%"]
+            }
+            default:{
+                return false
+            }
+        }
+    }
+
+    _letterD(){
+        switch(this.reader.peak()){
+            case "u":{
+                this.reader.readnext()
+                let temp = this._getModAndFloatScale("du")
+                if(temp){
+                    return temp
+                }
+            }
+            default:{
+                return false
             }
         }
     }

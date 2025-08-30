@@ -6,13 +6,19 @@
   - [_Modifications_](#modifications)
     - [_Break_](#break)
     - [_Emphasis_](#emphasis)
+    - [_Echo_](#echo)
     - [_Expletive/Beep_](#expletivebeep)
     - [_IPA (International Phonetic Alphabet)_](#ipa-international-phonetic-alphabet)
     - [_Language_](#language)
     - [_Max Duration_](#max-duration)
+    - [_Megaphone_](#megaphone)
+    - [_Minified_](#minified)
+    - [_Muffler_](#muffler)
     - [_Pitch_](#pitch)
     - [_Soft_](#soft)
     - [_Rate_](#rate)
+    - [_Reverb_](#reverb)
+    - [_Robot_](#robot)
     - [_Timbre_](#timbre)
     - [_Volume_](#volume)
     - [_Whisper_](#whisper)
@@ -26,15 +32,15 @@ This is a custom and shortend way to control the TTS voices of Bikubot, this use
 
 ## _How it works_
 
-Any change to how something is spoken start with **_#_** followed by the modifications you wanna do to the voice, these modifications are represented by a letter [as an example **_p_** for pitch] and for some modification the addition of numbers are needed to represent the scale of the modification. Finally the spoken word you want the modification to apply to is encapsulated by **_[ and ]_**. Because of this the characters **[** and **]** are **reserved** and if used within a voice modification it needs to be a matching pair. \
+Any change to how something is spoken start with **_#_** followed by the modifications you wanna do to the voice. These modifications are represented by a two-letter code [as an example **_pi_** for pitch] and for some modification the addition of numbers are needed to represent the scale of the modification. Finally the spoken word you want the modification to apply to is encapsulated by **_[ and ]_**. Because of this the characters **[** and **]** are **reserved** and if used within a voice modification it needs to be a matching pair. \
  
-an example would be the SSML **_&lt;prosody pitch="+50%" rate="200%">This is a test&lt;/prosody>_** would in shorthand be **_#p150r200[this is a test]_**. Note that it's not a one to one for some things, as pitch in Normal SSML goes between -30 and +50, but shorthand only works with positive numbers so a conversion is done, where instead of starting at 0 the shorthand starts at 100 for pitch. \
+an example would be the SSML **_&lt;prosody pitch="+50%" rate="200%">This is a test&lt;/prosody>_** would in shorthand be **_#pi150ra200[this is a test]_**. Note that it's not a one to one for some things, as pitch in Normal SSML goes between -30 and +50, but shorthand only works with positive numbers so a conversion is done, where instead of starting at 0 the shorthand starts at 100 for pitch. \
  
-You can also mix any modifications, as an example if you wanted to add a whisper to the above example the shorthand would be: **_#wp150r200[this is a test]_**. The order of the modification characters does not matter. So you could do it like **_#p150wr200[this is a test]_** and it would work the same. \
+You can also mix any modifications, as an example if you wanted to add a whisper to the above example the shorthand would be: **_#whpi150ra200[this is a test]_**. The order of the modification codes does not matter. So you could do it like **_#pi150whra200[this is a test]_** and it would work the same. \
  
-But if you would try to do something like **_#wr20r200[this is a test],_** that is to have the same modification more than once in the same **_tag_** it will only take the latest modification it sees in the tag so in the case it would seen the same as **_#wr200[this is a test]_**, the r20 will be thrown away. \
+But if you would try to do something like **_#whra20ra200[this is a test],_** that is to have the same modification more than once in the same **_tag_** it will only take the latest modification it sees in the tag so in the case it would seen the same as **_#whra200[this is a test]_**, the ra20 will be thrown away. \
  
-The shorthand also support nested tags, so you could do something like **_#p150[this is a #w[test]]._** All modification is also case insensitive so **_#P150L(Sv-Se)[test]_** is the same as **_#p150l(sv-se)[test]_**. \
+The shorthand also support nested tags, so you could do something like **_#pi150[this is a #wh[test]]._** All modification is also case insensitive so **_#PI150LA(Sv-Se)[test]_** is the same as **_#pi150la(sv-se)[test]_**. \
  
 The bot also does its best to fix any issues, such as if a value is too high it will set it to highest possible for that modification. \
  The possible modifications and their values can be found next.
@@ -45,14 +51,14 @@ The bot also does its best to fix any issues, such as if a value is too high it 
 * The characters **[** and **]** are reserved characters and if used, need to be used in pairs when used outside their intended use case (marking what to modifiy).
 * You can do nested modifications.
     * **Example:** 
-      * **#p150[this is a nested pitch #w[whisper test]]** 
-      * **#p150[this is #w[deeply #r120s[nested and #t120[going deeper], and] now] back up]** 
-      * **#v11[#w[testing #s[softly] whispering] with a bit higher volume, #t50[ending with some timbre]]**
+      * **#pi150[this is a nested pitch #wh[whisper test]]** 
+      * **#pi150[this is #wh[deeply #ra120so[nested and #ti120[going deeper], and] now] back up]** 
+      * **#vo11[#wh[testing #so[softly] whispering] with a bit higher volume, #ti50[ending with some timbre]]**
 * You can add more then one modification per voice modificiation, the order does not matter.
     * **Example:** 
-      * **#p150w[this is a modifed pitch with whipser]** 
-      * **#wst50l(sv-se)[this soft and whispering swedish language voice with modified timbre]** 
-      * **#b.5t50p150r180[This starts with a 0.5s break and modified pitch, rate and timbre]** 
+      * **#pi150wh[this is a modifed pitch with whipser]** 
+      * **#whsoti50la(sv-se)[this soft and whispering swedish language voice with modified timbre]** 
+      * **#br.5ti50pi150ra180[This starts with a 0.5s break and modified pitch, rate and timbre]** 
 * The modification part is case insensative.
 * Any modification value outside it's min or max range will be set to its min or max (whatever is closest).
 * Any modification value that is not valid will be set to a normalized default value.
@@ -64,7 +70,7 @@ The bot also does its best to fix any issues, such as if a value is too high it 
 ---
 ### _Break_
 
-pitch is represented by the letter **_b_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;break time=””>_** tag. The break happens before any given text, if there is any in the encapsulating **_[]_** 
+Break is represented by the code **_br_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;break time=””>_** tag. The break happens before any given text, if there is any in the encapsulating **_[]_** 
 
 * **Effect:** Creates a break in the speech at the given point of the tag for the given amount of time in seconds..
 * **Characters:** \
@@ -81,15 +87,15 @@ pitch is represented by the letter **_b_** and supports either a following numer
 
 * **Example:**
   * **Characters:** \
-        **_#b+[]_** is equal to **_&lt;break strength=”strong” />_**
+        **_#br+[]_** is equal to **_&lt;break strength=”strong” />_**
   * **Numeric:** \
-        **_#b1.2[A test]_** is equal to **_&lt;break strength=”1200ms” />A test_** \
-        **_#b.5[]_** is equal to **_&lt;break strength=”500ms” />_**
+        **_#br1.2[A test]_** is equal to **_&lt;break strength=”1200ms” />A test_** \
+        **_#br.5[]_** is equal to **_&lt;break strength=”500ms” />_**
 
 ---
 ### _Emphasis_
 
-Emphasis is represented by the letter **_m_** and needs a following **_- , + , ++_**. The SSML equivalence is the**_&lt;emphasis level="">_** tag.
+Emphasis is represented by the code **_em_** and needs a following **_- , + , ++_**. The SSML equivalence is the**_&lt;emphasis level="modeerate">_** tag.
 
 * **Effect:** Tries to (de)emphasis the word/sentence.
 
@@ -100,35 +106,53 @@ Emphasis is represented by the letter **_m_** and needs a following **_- , + , +
     * **-** = reduced
 
 * **Example:** \
-    **_#m++[A test]_** is equal to **_&lt;emphasis level="strong">A test&lt;/say-as>_** \
-    **_#m-[A test]_** is equal to **_&lt;emphasis level="reduced">A test&lt;/say-as>_**
+    **_#em++[A test]_** is equal to **_&lt;emphasis level="strong">A test&lt;/say-as>_** \
+    **_#em-[A test]_** is equal to **_&lt;emphasis level="reduced">A test&lt;/say-as>_**
+
+---
+### _Echo_
+Echo is a secondary effect, meaning its beeing added on after the TTS is generated.
+
+Echo is represented by the code **_ec_** and needs a following float value between 0.0 and 1.0. The SSML representation is produced via speech marks.
+
+* **Effect:** Adds an echo effect at the chosen level.
+
+* **Numeric:**
+    * **default:** 0.3
+    * **max:** 1.0
+    * **min:** 0.0
+
+* **Example:** \
+    **_#ec0.75[A test]_** inserts markers equal to: 
+    - Start: `&lt;mark name="echo_0.75"/>`
+    - End: `&lt;mark name="echo_off"/>`
 
 ---
 ### _Expletive/Beep_
 
-Expletive/beep is represented by the letter **_e_** and does not need any additional data. The SSML equivalence is the**_&lt;say-as interpret-as="expletive">_** tag.
+Expletive/beep is represented by the code **_ex_** and does not need any additional data. The SSML equivalence is the**_&lt;say-as interpret-as="expletive">_** tag.
 
 * **Effect:** Beeps out the content.
 
 * **Example:** \
-    **_#e[A test]_** is equal to **_&lt;say-as interpret-as="expletive">A test&lt;/say-as>_**
+    **_#ex[A test]_** is equal to **_&lt;say-as interpret-as="expletive">A test&lt;/say-as>_**
 
 ---
 ### _IPA (International Phonetic Alphabet)_
 
-IPA is represented by the letter **_i_** and followed by encapsulated in () the phonetic symbols for pronunciation. The SSML equivalence is the **_&lt;phoneme alphabet="ipa" ph=”">_** tag.
+IPA is represented by the code **_ip_** and followed by encapsulated in () the phonetic symbols for pronunciation. The SSML equivalence is the **_&lt;phoneme alphabet="ipa" ph=”">_** tag.
 	
 
 * **Effect:** Changes how the word(s) encapsulated in **_[]_** are spoken.** 
 
 
 * **Example:** \
-    **_#i(pɪˈkɑːn)[A test]_** is equal to **_&lt;phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan&lt;/phoneme>_**
+    **_#ip(pɪˈkɑːn)[A test]_** is equal to **_&lt;phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan&lt;/phoneme>_**
 
 ---
 ### _Language_
 
-Language is represented by the letter **_l_** and followed by encapsulated in **_()_** the language code for the language you want to use. The SSML equivalence is the **_&lt;lang xml:lang="fr-FR">_** tag.
+Language is represented by the code **_la_** and followed by encapsulated in **_()_** the language code for the language you want to use. The SSML equivalence is the **_&lt;lang xml:lang="fr-FR">_** tag.
 
 
 * **Effect:** Changes what language the voice will use to try to speak the words.
@@ -323,13 +347,31 @@ Language is represented by the letter **_l_** and followed by encapsulated in **
 
 * **Example:**
     * **Characters:** \
-        **_#l(ja-jp)[A test]_** is equal to **_&lt;lang xml:lang="ja-JP">A test&lt;/lang>_**
+        **_#la(ja-jp)[A test]_** is equal to **_&lt;lang xml:lang="ja-JP">A test&lt;/lang>_**
     * **Numeric:** \
-        **_#l(en-us)[A test]_** is equal to **_&lt;lang xml:lang="en-US">A test&lt;/lang>_**
+        **_#la(en-us)[A test]_** is equal to **_&lt;lang xml:lang="en-US">A test&lt;/lang>_**
+---
+### _Megaphone_
+Megaphone is a secondary effect, meaning its beeing added on after the TTS is generated.
+
+Megaphone is represented by the code **_me_** and needs a following numeric level 1–2. The SSML representation is produced via speech marks.
+
+* **Effect:** Applies a megaphone effect at the chosen level.
+
+* **Numeric:**
+    * **default:** 1
+    * **max:** 2
+    * **min:** 1
+
+* **Example:** \
+    **_#me2[A test]_** inserts markers equal to: 
+    - Start: `&lt;mark name="megaphone_2"/>`
+    - End: `&lt;mark name="megaphone_off"/>`
+
 ---
 ### _Max Duration_
 
-max duration is represented by the letter **_d_** and needs a following numeric value. The SSML equivalance is the **_&lt;prosody amazon:max-duration="">_** tag. There is limits on how fast the speech can be speed up, and if it already fits within the duration no changes are made.
+Max duration is represented by the code **_du_** and needs a following numeric value. The SSML equivalance is the **_&lt;prosody amazon:max-duration="">_** tag. There is limits on how fast the speech can be speed up, and if it already fits within the duration no changes are made.
 
 * **Effect:** Tries to speed up the speech so it fits within the given time.
 
@@ -339,13 +381,45 @@ max duration is represented by the letter **_d_** and needs a following numeric 
     * **min:** 0.0
 
 * **Example**
-    **_#d5.3[A test]_** is equal to **_&lt;prosody amazon:max-duration="5300ms">A test&lt;/prosody>_** /
-    **_#d.5[A test]_** is equal to **_&lt;prosody amazon:max-duration="500ms">A test&lt;/prosody>_** /
+    **_#du5.3[A test]_** is equal to **_&lt;prosody amazon:max-duration="5300ms">A test&lt;/prosody>_** /
+    **_#du.5[A test]_** is equal to **_&lt;prosody amazon:max-duration="500ms">A test&lt;/prosody>_** /
+
+---
+### _Minified_
+
+Minified is represented by the code **_mi_** and has a single level.
+
+* **Effect:** Applies a "minified" effect. Where it sounds like the speech is coming from something small.
+
+* **Numeric:**
+    * Fixed level: 1
+
+* **Example:** \
+    **_#mi[A test]_** inserts markers equal to: 
+    - Start: `&lt;mark name="minified_1"/>`
+    - End: `&lt;mark name="minified_off"/>`
+
+---
+### _Muffler_
+
+Muffler is represented by the code **_mu_** and needs a following numeric level 1–3. The SSML representation is produced via speech marks.
+
+* **Effect:** Applies a muffling effect at the chosen level.
+
+* **Numeric:**
+    * **default:** 1
+    * **max:** 3
+    * **min:** 1
+
+* **Example:** \
+    **_#mu2[A test]_** inserts markers equal to: 
+    - Start: `&lt;mark name="muffler_2"/>`
+    - End: `&lt;mark name="muffler_off"/>`
 
 ---
 ### _Pitch_
 
-pitch is represented by the letter **_p_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody pitch=””>_** tag. 
+Pitch is represented by the code **_pi_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody pitch=””>_** tag. 
 
 * **Effect:** Changes the pitch at which the spoken words are spoken at.
 
@@ -363,24 +437,24 @@ pitch is represented by the letter **_p_** and supports either a following numer
 
 * **Example:**
     * **Characters:** \
-        **_#p++[A test]_** is equal to **_&lt;prosody pitch=”x-high”>A test&lt;/prosody>_**
+        **_#pi++[A test]_** is equal to **_&lt;prosody pitch=”x-high”>A test&lt;/prosody>_**
     * **Numeric:** \
-        **_#p150[A test]_** is equal to **_&lt;prosody pitch=”50%”>A test&lt;/prosody>_**
+        **_#pi150[A test]_** is equal to **_&lt;prosody pitch=”50%”>A test&lt;/prosody>_**
 
 ---
 ### _Soft_
 
-soft speech is represented by the letter **_s_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect phonation="soft"">_** tag.
+Soft speech is represented by the code **_so_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect phonation="soft"">_** tag.
 
 * **Effect:** Makes the speech being spoken sound softer.
 
 * **Example:** \
-    **_#s[A test]_** is equal to **_&lt;amazon:effect phonation="soft""A test&lt;/amazon:effect>_**
+    **_#so[A test]_** is equal to **_&lt;amazon:effect phonation="soft""A test&lt;/amazon:effect>_**
 
 ---
 ### _Rate_
 
-Rate is represented by the letter **_r_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody rate=””>_** tag. 
+Rate is represented by the code **_ra_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody rate=””>_** tag. 
 
 
 
@@ -399,14 +473,50 @@ Rate is represented by the letter **_r_** and supports either a following numeri
 
 * **Example:**
     * **Characters:**  \
-        **_#r--[A test]_** is equal to **_&lt;prosody rate=”x-slow”>A test&lt;/prosody>_**
+        **_#ra--[A test]_** is equal to **_&lt;prosody rate=”x-slow”>A test&lt;/prosody>_**
     * **Numeric:** \
-        **_#r150[A test]_** is equal to **_&lt;prosody rate=”150%”>A test&lt;/prosody>_**
+        **_#ra150[A test]_** is equal to **_&lt;prosody rate=”150%”>A test&lt;/prosody>_**
+
+---
+### _Reverb_
+Reverb is a secondary effect, meaning its beeing added on after the TTS is generated.
+
+Reverb is represented by the code **_re_** and needs a following numeric level 1–3. The SSML representation is produced via speech marks.
+
+* **Effect:** Adds reverb at the chosen level.
+
+* **Numeric:**
+    * **default:** 1
+    * **max:** 3
+    * **min:** 1
+
+* **Example:** \
+    **_#re3[A test]_** inserts markers equal to: 
+    - Start: `&lt;mark name="reverb_3"/>`
+    - End: `&lt;mark name="reverb_off"/>`
+
+---
+### _Robot_
+Robot is a secondary effect, meaning its beeing added on after the TTS is generated.
+
+Robot is represented by the code **_ro_** and needs a following numeric level 1–2. The SSML representation is produced via speech marks.
+
+* **Effect:** Applies a robotic effect at the chosen level.
+
+* **Numeric:**
+    * **default:** 1
+    * **max:** 2
+    * **min:** 1
+
+* **Example:** \
+    **_#ro2[A test]_** inserts markers equal to: 
+    - Start: `&lt;mark name="robot_2"/>`
+    - End: `&lt;mark name="robot_off"/>`
 
 ---
 ### _Timbre_
 
-Rate is represented by the letter **_t_** and supports either a following numeric value or **_+ , ++ , - , --._** The SSML equivalence is the **_&lt;amazon:effect vocal-tract-length="">_**  tag. 
+Timbre is represented by the code **_ti_** and supports either a following numeric value or **_+ , ++ , - , --._** The SSML equivalence is the **_&lt;amazon:effect vocal-tract-length="">_**  tag. 
 
 
 * **Effect:** Changes the timbre of voice.
@@ -423,14 +533,14 @@ Rate is represented by the letter **_t_** and supports either a following numeri
 
 * **Example:**
     * **Characters:**  \
-        **_#t--[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
+        **_#ti--[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
     * **Numeric:** \
-        **_#t50[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
+        **_#ti50[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
 
 ---
 ### _Volume_
 
-Volume is represented by the letter **_v_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody volume=””>_** tag.
+Volume is represented by the code **_vo_** and supports either a following numeric value or **_+ , ++ , - , --_**. The SSML equivalence is the **_&lt;prosody volume=””>_** tag.
 
 
 * **Effect:** Changes the volume of the speech.
@@ -449,21 +559,21 @@ Volume is represented by the letter **_v_** and supports either a following nume
 
 * **Example:**
     * **Characters:**  \
-        **_#v+[A test]_** is equal to **_&lt;prosody volume=”loud”>A test&lt;/prosody>_**
+        **_#vo+[A test]_** is equal to **_&lt;prosody volume=”loud”>A test&lt;/prosody>_**
     * **Numeric: \
-        **_#v4[A test]_** is equal to **_&lt;prosody rate=”-6db”>A test&lt;/prosody>_**
+        **_#vo4[A test]_** is equal to **_&lt;prosody rate=”-6db”>A test&lt;/prosody>_**
 
 ---
 ### _Whisper_
 
-Is represented by the letter **_w_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect name="whispered">_** tag.
+Is represented by the code **_wh_** and does not need any additional data. The SSML equivalence is the **_&lt;amazon:effect name="whispered">_** tag.
 
 
 
 * **Effect:** Makes the spoken words be spoken in a whispering voice. \
 
 * **Example:** \
-    **_#w[A test]_** is equal to **_&lt;amazon:effect name="whispered">A test&lt;/amazon:effect>_**
+    **_#wh[A test]_** is equal to **_&lt;amazon:effect name="whispered">A test&lt;/amazon:effect>_**
 
 ---
 ## Special Effects
@@ -486,6 +596,7 @@ These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses t
 ---
 
 ### _Tones_
+The following cheat sheet uses the old one character system, if you use it make sure to use the two character system.
 
 This is a cheat sheet on how to create tone sounding sounds by using the Expletive/Beep tag, that was created by a community memeber [Nowrench](https://x.com/NoWrench).
 ![TTS-Melody-Guide](https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition/assets/64921696/53866c05-31bd-4ca0-af25-2113acb58d29)

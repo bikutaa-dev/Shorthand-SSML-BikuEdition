@@ -1,4 +1,3 @@
-import { check } from "ssml-check-core";
 import { Reader } from "./reader.js";
 import { SSMLTagsData } from "./ssml tags data.js";
 import { SSMLTokenzier } from "./ssml tokenizer.js";
@@ -8,7 +7,7 @@ export class SSMLParser{
         this.tokenizer = new SSMLTokenzier(txt)
         this.reader = new Reader()
         this.generator = new SSMLTagsData()
-        this.ssml_regex =  /%((?:w|s|e)|(?:p|r|v|t|m|d)(?<scale>[\+]{1,2}|[-]{1,2}|\d+)?|b(?<time>\d*(?:\.\d+)?)|(?:i|l)\((?<encap>[^\)]*?)\))%/i
+        this.ssml_regex =  /%((?:wh|so|ex)|(?:(?<dual_letter>em|me|ec|br|pi|ra|vo|ti|du|re|mi|mu|ro))(?<scale>[\+]{1,2}|[-]{1,2}|\d*(?:\.\d+)?)?|(?:ip|la)\((?<encap>[^\)]*?)\))%/i
         this.effect_regex = /(--(bxl|bl|b|bs|bxs)--)/ig
         this.special_characters = /((<3|&))/ig
         this.token_array = []
@@ -102,24 +101,31 @@ export class SSMLParser{
 
     _generateSSMLTag(){
         let match = this.ssml_regex.exec(this.reader.char)
-        //console.log("Char:", this.reader.char)
         //console.log("REGEX:", match[0], match.groups) 
         if(match !== null){
-            switch(match[1][0]){
-                case "b": this.generator.setBreak(match.groups.time); return;
-                case "e": this.generator.setSayAsInterpretAs("expletive"); return;
-                case "i": this.generator.setPheomeIpa(match.groups.encap); return;
-                case "p": this.generator.setProsodyPitch(match.groups.scale); return;
-                case "r": this.generator.setProsodyRate(match.groups.scale); return;
-                case "v": this.generator.setProsodyVolume(match.groups.scale); return;
-                case "t": this.generator.setEffectTimbre(match.groups.scale); return;
-                case "l": this.generator.setLang(match.groups.encap); return;
-                case "w": this.generator.setEffectWhisper(); return;
-                case "s": this.generator.setEffectSoft(); return;
-                case "m": this.generator.setEmphasis(match.groups.scale); return;
-                case "d": this.generator.setProsodyMaxDuration(match.groups.scale); return;
+            const first_two_letters = match[1].substring(0,2).toLowerCase();
+            switch(first_two_letters){
+                case "em": this.generator.setEmphasis(match.groups.scale); return;
+                case "me": this.generator.setMegaphoneVariation(match.groups.scale); return;
+                case "br": this.generator.setBreak(match.groups.scale); return;
+                case "pi": this.generator.setProsodyPitch(match.groups.scale); return;
+                case "ra": this.generator.setProsodyRate(match.groups.scale); return;
+                case "vo": this.generator.setProsodyVolume(match.groups.scale); return;
+                case "ti": this.generator.setEffectTimbre(match.groups.scale); return;
+                case "du": this.generator.setProsodyMaxDuration(match.groups.scale); return;
+                case "re": this.generator.setReverbLevel(match.groups.scale); return;
+                case "mi": this.generator.setMinified(); return;
+                case "ec": this.generator.setEchoLevel(match.groups.scale); return;
+                case "mu": this.generator.setMufflerLevel(match.groups.scale); return;
+                case "ro": this.generator.setRobotLevel(match.groups.scale); return;
+                case "ex": this.generator.setSayAsInterpretAs("expletive"); return;
+                case "ip": this.generator.setPheomeIpa(match.groups.encap); return;
+                case "la": this.generator.setLang(match.groups.encap); return;
+                case "wh": this.generator.setEffectWhisper(); return;
+                case "so": this.generator.setEffectSoft(); return;
                 default: break;
             }
+            console.log("match", match)
         }
         
         //console.log("Regex matching",this.reader.char, "got the match: ", match)
