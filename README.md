@@ -1,3 +1,18 @@
+# Updates
+With shorthand V2 the system moves from using one character to represent an effect to using two, this is to make the letter combination make more sense and open up more "slots" for future effets.
+This shorthand is not currently implemented in Bikubot so will not work on streams until implemented.
+
+Down below you can also find the 6 new effects added this time around. These effects are being added on in a second pass on the TTS audio gotten from AWS Polly.
+  - [_Modifications_](#modifications)
+    - [_Echo_](#echo)
+    - [_Megaphone_](#megaphone)
+    - [_Minified_](#minified)
+    - [_Muffler_](#muffler)
+    - [_Reverb_](#reverb)
+    - [_Robot_](#robot)
+
+---
+  
   # **Shorthand SSML for Bikubot**
 - [**Shorthand SSML for Bikubot**](#shorthand-ssml-for-bikubot)
   - [_What is this_](#what-is-this)
