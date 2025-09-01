@@ -133,12 +133,12 @@ Echo is represented by the code **_ec_** and needs a following number between 1 
 * **Effect:** Adds an echo effect at the chosen level.
 
 * **Numeric:**
-    * **default:** 0.3
-    * **max:** 1.0
-    * **min:** 0.0
+    * **default:** 2
+    * **max:** 6
+    * **min:** 1
 
 * **Example:** \
-    **_#ec0.75[A test]_**
+    **_#ec4[A test]_**
 
 ---
 ### _Expletive/Beep_
