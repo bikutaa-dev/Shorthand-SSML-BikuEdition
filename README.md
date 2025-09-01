@@ -128,7 +128,7 @@ Emphasis is represented by the code **_em_** and needs a following **_- , + , ++
 ### _Echo_
 Echo is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Echo is represented by the code **_ec_** and needs a following float value between 0.0 and 1.0. The SSML representation is produced via speech marks.
+Echo is represented by the code **_ec_** and needs a following number between 1 and 6 for the strength of the echo effect. There is no SSML equivalence.
 
 * **Effect:** Adds an echo effect at the chosen level.
 
@@ -138,9 +138,7 @@ Echo is represented by the code **_ec_** and needs a following float value betwe
     * **min:** 0.0
 
 * **Example:** \
-    **_#ec0.75[A test]_** inserts markers equal to: 
-    - Start: `&lt;mark name="echo_0.75"/>`
-    - End: `&lt;mark name="echo_off"/>`
+    **_#ec0.75[A test]_**
 
 ---
 ### _Expletive/Beep_
@@ -369,7 +367,7 @@ Language is represented by the code **_la_** and followed by encapsulated in **_
 ### _Megaphone_
 Megaphone is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Megaphone is represented by the code **_me_** and needs a following numeric level 1–2. The SSML representation is produced via speech marks.
+Megaphone is represented by the code **_me_** and needs a following numeric level 1–2. There is no SSML equivalence.
 
 * **Effect:** Applies a megaphone effect at the chosen level.
 
@@ -379,9 +377,7 @@ Megaphone is represented by the code **_me_** and needs a following numeric leve
     * **min:** 1
 
 * **Example:** \
-    **_#me2[A test]_** inserts markers equal to: 
-    - Start: `&lt;mark name="megaphone_2"/>`
-    - End: `&lt;mark name="megaphone_off"/>`
+    **_#me2[A test]_**
 
 ---
 ### _Max Duration_
@@ -401,8 +397,9 @@ Max duration is represented by the code **_du_** and needs a following numeric v
 
 ---
 ### _Minified_
+Minified is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Minified is represented by the code **_mi_** and has a single level.
+Minified is represented by the code **_mi_** and has a single level. There is no SSML equivalence.
 
 * **Effect:** Applies a "minified" effect. Where it sounds like the speech is coming from something small.
 
@@ -410,14 +407,13 @@ Minified is represented by the code **_mi_** and has a single level.
     * Fixed level: 1
 
 * **Example:** \
-    **_#mi[A test]_** inserts markers equal to: 
-    - Start: `&lt;mark name="minified_1"/>`
-    - End: `&lt;mark name="minified_off"/>`
+    **_#mi[A test]_**
 
 ---
 ### _Muffler_
+Muffler is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Muffler is represented by the code **_mu_** and needs a following numeric level 1–3. The SSML representation is produced via speech marks.
+Muffler is represented by the code **_mu_** and needs a following numeric level 1–3. There is no SSML equivalence.
 
 * **Effect:** Applies a muffling effect at the chosen level.
 
@@ -427,9 +423,7 @@ Muffler is represented by the code **_mu_** and needs a following numeric level 
     * **min:** 1
 
 * **Example:** \
-    **_#mu2[A test]_** inserts markers equal to: 
-    - Start: `&lt;mark name="muffler_2"/>`
-    - End: `&lt;mark name="muffler_off"/>`
+    **_#mu2[A test]_**
 
 ---
 ### _Pitch_
@@ -496,7 +490,7 @@ Rate is represented by the code **_ra_** and supports either a following numeric
 ### _Reverb_
 Reverb is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Reverb is represented by the code **_re_** and needs a following numeric level 1–3. The SSML representation is produced via speech marks.
+Reverb is represented by the code **_re_** and needs a following numeric level 1–3. There is no SSML equivalence.
 
 * **Effect:** Adds reverb at the chosen level.
 
@@ -506,15 +500,13 @@ Reverb is represented by the code **_re_** and needs a following numeric level 1
     * **min:** 1
 
 * **Example:** \
-    **_#re3[A test]_** inserts markers equal to: 
-    - Start: `&lt;mark name="reverb_3"/>`
-    - End: `&lt;mark name="reverb_off"/>`
+    **_#re3[A test]_**
 
 ---
 ### _Robot_
 Robot is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Robot is represented by the code **_ro_** and needs a following numeric level 1–2. The SSML representation is produced via speech marks.
+Robot is represented by the code **_ro_** and needs a following numeric level 1–2. There is no SSML equivalence.
 
 * **Effect:** Applies a robotic effect at the chosen level.
 
@@ -524,9 +516,7 @@ Robot is represented by the code **_ro_** and needs a following numeric level 1�
     * **min:** 1
 
 * **Example:** \
-    **_#ro2[A test]_** inserts markers equal to: 
-    - Start: `&lt;mark name="robot_2"/>`
-    - End: `&lt;mark name="robot_off"/>`
+    **_#ro2[A test]_**
 
 ---
 ### _Timbre_
