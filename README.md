@@ -367,7 +367,7 @@ Language is represented by the code **_la_** and followed by encapsulated in **_
 ### _Megaphone_
 Megaphone is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Megaphone is represented by the code **_me_** and needs a following numeric level 1–2. There is no SSML equivalence.
+Megaphone is represented by the code **_me_** and needs a following numeric selector (1–3). There is no SSML equivalence.
 
 * **Effect:** Applies a megaphone effect at the chosen level.
 
@@ -399,7 +399,7 @@ Max duration is represented by the code **_du_** and needs a following numeric v
 ### _Minified_
 Minified is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Minified is represented by the code **_mi_** and has a single level. There is no SSML equivalence.
+Minified is represented by the code **_mi_**. There is no SSML equivalence.
 
 * **Effect:** Applies a "minified" effect. Where it sounds like the speech is coming from something small.
 
@@ -413,7 +413,7 @@ Minified is represented by the code **_mi_** and has a single level. There is no
 ### _Muffler_
 Muffler is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Muffler is represented by the code **_mu_** and needs a following numeric level 1–3. There is no SSML equivalence.
+Muffler is represented by the code **_mu_** and needs a following numeric strength selector (1–3). There is no SSML equivalence.
 
 * **Effect:** Applies a muffling effect at the chosen level.
 
@@ -490,7 +490,7 @@ Rate is represented by the code **_ra_** and supports either a following numeric
 ### _Reverb_
 Reverb is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Reverb is represented by the code **_re_** and needs a following numeric level 1–3. There is no SSML equivalence.
+Reverb is represented by the code **_re_** and needs a following numeric strength selector (1–3). There is no SSML equivalence.
 
 * **Effect:** Adds reverb at the chosen level.
 
@@ -506,13 +506,13 @@ Reverb is represented by the code **_re_** and needs a following numeric level 1
 ### _Robot_
 Robot is a secondary effect, meaning its beeing added on after the TTS is generated.
 
-Robot is represented by the code **_ro_** and needs a following numeric level 1–2. There is no SSML equivalence.
+Robot is represented by the code **_ro_** and needs a following numeric selector (1–3). There is no SSML equivalence.
 
 * **Effect:** Applies a robotic effect at the chosen level.
 
 * **Numeric:**
     * **default:** 1
-    * **max:** 2
+    * **max:** 3
     * **min:** 1
 
 * **Example:** \
