@@ -217,7 +217,7 @@ export class SSMLTokenzier{
             }
             case "c":{
                 this.reader.readnext()
-                let temp = this._getModAndFloatScale("ec")
+                let temp = this._getModAndScale("ec")
                 if(temp){
                     return temp
                 }

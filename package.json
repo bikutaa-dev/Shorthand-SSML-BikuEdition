@@ -1,6 +1,6 @@
 {
-  "name": "biku_ssml_parser",
-  "version": "1.1.1",
+  "name": "@bikubot/ssml_parser",
+  "version": "2.0.0",
   "type": "module",
   "author": "Victor Liljeholm <Bikutaascript@gmail.com>",
   "keywords": [
@@ -8,6 +8,9 @@
     "shorthand",
     "bikubot"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition.git"

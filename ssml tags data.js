@@ -1,4 +1,4 @@
-import {validLangs} from "./valid values.js"
+import { validLangs } from "./valid values.js"
 export class SSMLTagsData{
     constructor(){
         this.reset()
@@ -47,6 +47,11 @@ export class SSMLTagsData{
         this.robot = {
             level: null
         }
+        this.anti_pop_break = false
+    }
+
+    setAntiPopBreak(){
+        this.anti_pop_break = true
     }
 
     setBreak(value){
@@ -88,16 +93,14 @@ export class SSMLTagsData{
     }
     
     setMegaphoneVariation(value){
-        console.log("value", value)
-        let check = this._checkForNumber(value, 1, 2, 1)
-        console.log("check", check)
+        let check = this._checkForNumber(parseInt(value), 1, 2, 1)
         if(check !== false){
             this.megaphone.variation = check
             return true
         }
     }
     setReverbLevel(value){
-        let check = this._checkForNumber(value, 1, 3, 1)
+        let check = this._checkForNumber(parseInt(value), 1, 3, 1)
         if(check !== false){
             this.reverb.level = check
             return true
@@ -106,11 +109,7 @@ export class SSMLTagsData{
         }
     }
     setEchoLevel(value){
-        value = parseFloat(value)
-        if(isNaN(value)){
-            return false
-        }
-        let check = this._checkForNumber(value, 0.0, 1.0, 0.3)
+        let check = this._checkForNumber(parseInt(value), 1, 6, 2)
         if(check !== false){
             this.echo.level = check
             return true
@@ -122,7 +121,7 @@ export class SSMLTagsData{
         this.minified = true
     }
     setMufflerLevel(value){
-        let check = this._checkForNumber(value, 1, 3, 1)
+        let check = this._checkForNumber(parseInt(value), 1, 3, 1)
         if(check !== false){
             this.muffler.level = check
             return true
@@ -131,7 +130,7 @@ export class SSMLTagsData{
         }
     }
     setRobotLevel(value){
-        let check = this._checkForNumber(value, 1, 2, 1)
+        let check = this._checkForNumber(parseInt(value), 1, 3, 1)
         if(check !== false){
             this.robot.level = check
             return true
@@ -283,6 +282,7 @@ export class SSMLTagsData{
         this._generateRobot()
         this._generateMegaphone()
         this._generateEmphasis()
+        this._generateAntiPopBreak()
         this._generateSayAs()
         this._generateLanguage()
         this._generatePhoneme()
@@ -467,4 +467,10 @@ export class SSMLTagsData{
         }
     }
 
+    _generateAntiPopBreak(){
+        if(this.anti_pop_break){
+            let ssml = "<break time='5ms'/>"
+            this.constructed_tags["end"] = ssml + this.constructed_tags["end"]
+        }
+    }
 }

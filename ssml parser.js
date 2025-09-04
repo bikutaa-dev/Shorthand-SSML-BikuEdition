@@ -12,6 +12,7 @@ export class SSMLParser{
         this.special_characters = /((<3|&))/ig
         this.token_array = []
         this.output = ""
+        this.number_of_special_effects = 0
     }
 
     initialize(txt){
@@ -84,12 +85,18 @@ export class SSMLParser{
 
     _ssmlSwitch(){
         this.generator.reset()
+        this.number_of_special_effects = 0
         let code = 0
         let has_expletive = false
         while(this.reader.char !== "%[%"){
             code = this._generateSSMLTag()
             this.reader.readnext()
         }
+
+        if(this.number_of_special_effects > 1){
+            this.generator.setAntiPopBreak()
+        }
+
         let tags = this.generator.generateTags()
         this.output = this.output + tags.start
         
@@ -106,18 +113,18 @@ export class SSMLParser{
             const first_two_letters = match[1].substring(0,2).toLowerCase();
             switch(first_two_letters){
                 case "em": this.generator.setEmphasis(match.groups.scale); return;
-                case "me": this.generator.setMegaphoneVariation(match.groups.scale); return;
+                case "me": this.generator.setMegaphoneVariation(match.groups.scale); this.number_of_special_effects++; return;
                 case "br": this.generator.setBreak(match.groups.scale); return;
                 case "pi": this.generator.setProsodyPitch(match.groups.scale); return;
                 case "ra": this.generator.setProsodyRate(match.groups.scale); return;
                 case "vo": this.generator.setProsodyVolume(match.groups.scale); return;
                 case "ti": this.generator.setEffectTimbre(match.groups.scale); return;
                 case "du": this.generator.setProsodyMaxDuration(match.groups.scale); return;
-                case "re": this.generator.setReverbLevel(match.groups.scale); return;
-                case "mi": this.generator.setMinified(); return;
-                case "ec": this.generator.setEchoLevel(match.groups.scale); return;
-                case "mu": this.generator.setMufflerLevel(match.groups.scale); return;
-                case "ro": this.generator.setRobotLevel(match.groups.scale); return;
+                case "re": this.generator.setReverbLevel(match.groups.scale); this.number_of_special_effects++; return;
+                case "mi": this.generator.setMinified(); this.number_of_special_effects++; return;
+                case "ec": this.generator.setEchoLevel(match.groups.scale); this.number_of_special_effects++; return;
+                case "mu": this.generator.setMufflerLevel(match.groups.scale); this.number_of_special_effects++; return;
+                case "ro": this.generator.setRobotLevel(match.groups.scale); this.number_of_special_effects++; return;
                 case "ex": this.generator.setSayAsInterpretAs("expletive"); return;
                 case "ip": this.generator.setPheomeIpa(match.groups.encap); return;
                 case "la": this.generator.setLang(match.groups.encap); return;
@@ -125,9 +132,7 @@ export class SSMLParser{
                 case "so": this.generator.setEffectSoft(); return;
                 default: break;
             }
-            console.log("match", match)
-        }
-        
+        }        
         //console.log("Regex matching",this.reader.char, "got the match: ", match)
     }
 
