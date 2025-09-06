@@ -195,9 +195,9 @@ export class SSMLTagsData{
         check = this._checkForNumber(value, 4, 14, 10)
         if(check !== false){
             if(check-10 >= 0){
-                this.prosody.volume = `+${check-10}db`
+                this.prosody.volume = `+${check-10}dB`
             }else{
-                this.prosody.volume = `${check-10}db`
+                this.prosody.volume = `${check-10}dB`
             }
             return true
         }else{
