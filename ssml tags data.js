@@ -1,4 +1,4 @@
-import {validLangs} from "./valid values.js"
+import { validLangs } from "./valid values.js"
 export class SSMLTagsData{
     constructor(){
         this.reset()
@@ -31,6 +31,27 @@ export class SSMLTagsData{
         }
 
         this.emphasis = null
+        this.megaphone = {
+            variation: null
+        }
+        this.reverb = {
+            level: null
+        }
+        this.echo = {
+            level: null
+        }
+        this.minified = false
+        this.muffler = {
+            level: null
+        }
+        this.robot = {
+            level: null
+        }
+        this.anti_pop_break = false
+    }
+
+    setAntiPopBreak(){
+        this.anti_pop_break = true
     }
 
     setBreak(value){
@@ -68,6 +89,53 @@ export class SSMLTagsData{
         let language = valid_langs[lang.toLowerCase()]
         if(language){
             this.lang = language
+        }
+    }
+    
+    setMegaphoneVariation(value){
+        let check = this._checkForNumber(parseInt(value), 1, 2, 1)
+        if(check !== false){
+            this.megaphone.variation = check
+            return true
+        }
+    }
+    setReverbLevel(value){
+        let check = this._checkForNumber(parseInt(value), 1, 3, 1)
+        if(check !== false){
+            this.reverb.level = check
+            return true
+        }else{
+            return false
+        }
+    }
+    setEchoLevel(value){
+        let check = this._checkForNumber(parseInt(value), 1, 6, 2)
+        if(check !== false){
+            this.echo.level = check
+            return true
+        }else{
+            return false
+        }
+    }
+    setMinified(){
+        this.minified = true
+    }
+    setMufflerLevel(value){
+        let check = this._checkForNumber(parseInt(value), 1, 3, 1)
+        if(check !== false){
+            this.muffler.level = check
+            return true
+        }else{
+            return false
+        }
+    }
+    setRobotLevel(value){
+        let check = this._checkForNumber(parseInt(value), 1, 3, 1)
+        if(check !== false){
+            this.robot.level = check
+            return true
+        }else{
+            return false
         }
     }
     setEffectWhisper(){
@@ -127,9 +195,9 @@ export class SSMLTagsData{
         check = this._checkForNumber(value, 4, 14, 10)
         if(check !== false){
             if(check-10 >= 0){
-                this.prosody.volume = `+${check-10}db`
+                this.prosody.volume = `+${check-10}dB`
             }else{
-                this.prosody.volume = `${check-10}db`
+                this.prosody.volume = `${check-10}dB`
             }
             return true
         }else{
@@ -207,11 +275,67 @@ export class SSMLTagsData{
         this._generateBreak()
         this._generateProsody()
         this._generateEffect()
-        this._generatePhoneme()
-        this._generateLanguage()
+        this._generateReverb()
+        this._generateMinified()
+        this._generateEcho()
+        this._generateMuffler()
+        this._generateRobot()
+        this._generateMegaphone()
         this._generateEmphasis()
+        this._generateAntiPopBreak()
         this._generateSayAs()
+        this._generateLanguage()
+        this._generatePhoneme()
+
         return this.constructed_tags
+    }
+    _generateReverb(){
+        if(this.reverb.level === null){
+            return
+        }
+        let temp =`<mark name="reverb_${this.reverb.level}"/>`
+        this.constructed_tags["start"] = this.constructed_tags["start"] + `${temp}` 
+        this.constructed_tags["end"] = `<mark name="reverb_off"/>` + this.constructed_tags["end"]
+    }
+    _generateEcho(){
+        if(this.echo.level === null){
+            return
+        }
+        let temp =`<mark name="echo_${this.echo.level}"/>`
+        this.constructed_tags["start"] = this.constructed_tags["start"] + `${temp}` 
+        this.constructed_tags["end"] = `<mark name="echo_off"/>` + this.constructed_tags["end"]
+    }
+    _generateMinified(){
+        if(!this.minified){
+            return
+        }
+        let temp =`<mark name="minified_1"/>`
+        this.constructed_tags["start"] = this.constructed_tags["start"] + `${temp}` 
+        this.constructed_tags["end"] = `<mark name="minified_off"/>` + this.constructed_tags["end"]
+    }
+    _generateMegaphone(){
+        if(this.megaphone.variation === null){
+            return
+        }
+        let temp =`<mark name="megaphone_${this.megaphone.variation}"/>`
+        this.constructed_tags["start"] = this.constructed_tags["start"] + `${temp}` 
+        this.constructed_tags["end"] = `<mark name="megaphone_off"/>` + this.constructed_tags["end"]
+    }
+    _generateMuffler(){
+        if(this.muffler.level === null){
+            return
+        }
+        let temp =`<mark name="muffler_${this.muffler.level}"/>`
+        this.constructed_tags["start"] = this.constructed_tags["start"] + `${temp}` 
+        this.constructed_tags["end"] = `<mark name="muffler_off"/>` + this.constructed_tags["end"]
+    }
+    _generateRobot(){
+        if(this.robot.level === null){
+            return
+        }
+        let temp =`<mark name="robot_${this.robot.level}"/>`
+        this.constructed_tags["start"] = this.constructed_tags["start"] + `${temp}` 
+        this.constructed_tags["end"] = `<mark name="robot_off"/>` + this.constructed_tags["end"]
     }
 
     _generateLanguage(){
@@ -343,4 +467,10 @@ export class SSMLTagsData{
         }
     }
 
+    _generateAntiPopBreak(){
+        if(this.anti_pop_break){
+            let ssml = "<break time='5ms'/>"
+            this.constructed_tags["end"] = ssml + this.constructed_tags["end"]
+        }
+    }
 }
