@@ -1,6 +1,6 @@
 # Updates
 
-**V2** \
+**v2** \
 With shorthand V2 the system moves from using one character to represent an effect to using two, this is to make the letter combination make more sense and open up more "slots" for future effects.
 This v2 only work with Bikubot v0.4.301 or later. If you want v1 you can find it here: [Shorthand v1](https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition/tree/Shorthand-v1)
 
@@ -603,7 +603,7 @@ These are created using the SSML **_&lt;amazon:breath>_** tag. All breath uses t
 ---
 
 ### _Tones_
-The following cheat sheet uses the old one character system, if you use it make sure to use the two character system.
+The following cheat sheet uses the old one character system, if you use it make sure to use the two character system. So #expixx instead of #epxx.
 
 This is a cheat sheet on how to create tone sounding sounds by using the Expletive/Beep tag, that was created by a community memeber [Nowrench](https://x.com/NoWrench).
 ![TTS-Melody-Guide](https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition/assets/64921696/53866c05-31bd-4ca0-af25-2113acb58d29)
