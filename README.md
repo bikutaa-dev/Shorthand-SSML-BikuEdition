@@ -1,6 +1,6 @@
 # Updates
 
-**V2**
+**V2** \
 With shorthand V2 the system moves from using one character to represent an effect to using two, this is to make the letter combination make more sense and open up more "slots" for future effects.
 This v2 only work with Bikubot v0.4.301 or later. If you want v1 you can find it here: [Shorthand v1](https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition/tree/Shorthand-v1)
 
