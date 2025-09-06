@@ -2,7 +2,7 @@
 
 **v2** \
 With shorthand V2 the system moves from using one character to represent an effect to using two, this is to make the letter combination make more sense and open up more "slots" for future effects.
-This v2 only work with Bikubot v0.4.301 or later. If you want v1 you can find it here: [Shorthand v1](https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition/tree/Shorthand-v1)
+This v2 only work in streams with Bikubot v0.4.301 or later. If you want v1 you can find it here: [Shorthand v1](https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition/tree/Shorthand-v1)
 
 Down below you can also find the 6 new effects added this time around. These effects are being added on in a second pass on the TTS audio gotten from AWS Polly.
   - [_Modifications_](#modifications)
