@@ -1,0 +1,10 @@
+title: Shorthand SSML Docs
+description: Documentation for Shorthand SSML – Biku Edition
+remote_theme: just-the-docs/just-the-docs
+color_scheme: dark
+search_enabled: true
+logo: 
+aux_links:
+  GitHub Repository: https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition
+nav_enabled: true
+footer_content: "© Shorthand SSML – Biku Edition"
