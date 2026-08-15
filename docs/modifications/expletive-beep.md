@@ -13,3 +13,10 @@ Expletive/beep is represented by the code **_ex_** and does not need any additio
 
 * **Example:** \
     **_#ex[A test]_** is equal to **_&lt;say-as interpret-as="expletive">A test&lt;/say-as>_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/expletive-beep_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/expletive-beep_tts.wav">WAV</a></audio>

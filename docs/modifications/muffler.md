@@ -19,3 +19,10 @@ Muffler is represented by the code **_mu_** and needs a following numeric streng
 
 * **Example:** \
     **_#mu2[A test]_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/muffler_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/muffler_tts.wav">WAV</a></audio>

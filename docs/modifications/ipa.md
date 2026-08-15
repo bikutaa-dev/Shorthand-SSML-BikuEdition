@@ -13,3 +13,10 @@ IPA is represented by the code **_ip_** and followed by encapsulated in () the p
 
 * **Example:** \
     **_#ip(pɪˈkɑːn)[A test]_** is equal to **_&lt;phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan&lt;/phoneme>_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/ipa_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/ipa_tts.wav">WAV</a></audio>

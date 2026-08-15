@@ -19,3 +19,10 @@ Reverb is represented by the code **_re_** and needs a following numeric strengt
 
 * **Example:** \
     **_#re3[A test]_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/reverb_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/reverb_tts.wav">WAV</a></audio>

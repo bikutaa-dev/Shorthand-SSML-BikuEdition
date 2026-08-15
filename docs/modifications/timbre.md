@@ -26,3 +26,10 @@ Timbre is represented by the code **_ti_** and supports either a following numer
         **_#ti--[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
     * **Numeric:** \
         **_#ti50[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/timbre_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/timbre_tts.wav">WAV</a></audio>

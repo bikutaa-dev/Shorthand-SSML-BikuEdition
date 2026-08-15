@@ -19,3 +19,10 @@ Echo is represented by the code **_ec_** and needs a following number between 1 
 
 * **Example:** \
     **_#ec4[A test]_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/echo_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/echo_tts.wav">WAV</a></audio>

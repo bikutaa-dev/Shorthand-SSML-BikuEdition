@@ -28,3 +28,10 @@ Volume is represented by the code **_vo_** and supports either a following numer
         **_#vo+[A test]_** is equal to **_&lt;prosody volume=”loud”>A test&lt;/prosody>_**
     * **Numeric:** \
         **_#vo4[A test]_** is equal to **_&lt;prosody rate=”-6db”>A test&lt;/prosody>_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/volume_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/volume_tts.wav">WAV</a></audio>

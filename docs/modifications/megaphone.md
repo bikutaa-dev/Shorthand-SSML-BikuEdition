@@ -19,3 +19,10 @@ Megaphone is represented by the code **_me_** and needs a following numeric sele
 
 * **Example:** \
     **_#me2[A test]_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/megaphone_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/megaphone_tts.wav">WAV</a></audio>

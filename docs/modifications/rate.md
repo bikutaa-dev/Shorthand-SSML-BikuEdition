@@ -27,3 +27,10 @@ Rate is represented by the code **_ra_** and supports either a following numeric
         **_#ra--[A test]_** is equal to **_&lt;prosody rate=”x-slow”>A test&lt;/prosody>_**
     * **Numeric:** \
         **_#ra150[A test]_** is equal to **_&lt;prosody rate=”150%”>A test&lt;/prosody>_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/rate_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/rate_tts.wav">WAV</a></audio>

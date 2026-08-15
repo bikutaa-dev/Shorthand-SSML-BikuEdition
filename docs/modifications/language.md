@@ -204,3 +204,10 @@ Language is represented by the code **_la_** and followed by encapsulated in **_
         **_#la(ja-jp)[A test]_** is equal to **_&lt;lang xml:lang="ja-JP">A test&lt;/lang>_**
     * **Numeric:** \
         **_#la(en-us)[A test]_** is equal to **_&lt;lang xml:lang="en-US">A test&lt;/lang>_**
+
+* **Audio Example**
+    * **Text:**
+    * <audio controls preload="none">
+        <source src="../audio/language_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/language_tts.wav">WAV</a></audio>
