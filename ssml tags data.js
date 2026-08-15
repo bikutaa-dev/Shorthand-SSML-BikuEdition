@@ -48,10 +48,15 @@ export class SSMLTagsData{
             level: null
         }
         this.anti_pop_break = false
+        this.use_multi_effects = false
     }
 
     setAntiPopBreak(){
         this.anti_pop_break = true
+    }
+
+    setUseMultiEffects(){
+        this.use_multi_effects = true
     }
 
     setBreak(value){
@@ -469,7 +474,7 @@ export class SSMLTagsData{
 
     _generateAntiPopBreak(){
         if(this.anti_pop_break){
-            let ssml = "<break time='5ms'/>"
+            let ssml = "<break time='11ms'/>"
             this.constructed_tags["end"] = ssml + this.constructed_tags["end"]
         }
     }

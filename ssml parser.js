@@ -13,6 +13,7 @@ export class SSMLParser{
         this.token_array = []
         this.output = ""
         this.number_of_special_effects = 0
+        this.uses_multi_effects = false
     }
 
     initialize(txt){
@@ -20,6 +21,7 @@ export class SSMLParser{
         this.tokenizer.initializeTokenzier(txt)
         this.token_array = []
         this.output = ""
+        this.uses_multi_effects = false
     }
 
     _checkForSpecialCharacters(txt){
@@ -39,10 +41,11 @@ export class SSMLParser{
         this.token_array = this.tokenizer.generateTokenArray()
         this._parse()
         this._parseEffects()
-        return this.output
+        return [this.output, this.uses_multi_effects]
     }
 
     parseWithTokens(tokens){
+        this.uses_multi_effects = false
         this.token_array = []
         this.output = ""
         this.token_array = tokens
@@ -67,7 +70,7 @@ export class SSMLParser{
             this.reader.readnext()
         }
 
-        return this.output
+        return [this.output, this.uses_multi_effects]
     }
 
     _parseEffects(){
@@ -93,6 +96,10 @@ export class SSMLParser{
             this.reader.readnext()
         }
 
+        if(this.number_of_special_effects > 0 && !this.uses_multi_effects){
+            this.uses_multi_effects = true
+        }
+
         if(this.number_of_special_effects > 1){
             this.generator.setAntiPopBreak()
         }
@@ -102,7 +109,11 @@ export class SSMLParser{
         
         let sub = this.reader.getEncapsulation("%[%", "%]%")
         let temp_parser = new SSMLParser()
-        this.output = this.output + temp_parser.parseWithTokens(sub) + tags.end
+        let [temp_output, temp_uses_multi_effects] = temp_parser.parseWithTokens(sub)
+        if(temp_uses_multi_effects){
+            this.uses_multi_effects = true
+        }
+        this.output = this.output + temp_output + tags.end
         //console.log("Reader at char ", this.reader.char)
     }
 
