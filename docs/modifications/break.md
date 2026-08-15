@@ -34,5 +34,4 @@ Break is represented by the code **_br_** and supports either a following numeri
     * <audio controls preload="none">
         <source src="../audio/break_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:
-        <a href="../audio/break_tts.wav">WAV</a>
-    </audio>
+        <a href="../audio/break_tts.wav">WAV</a></audio>
