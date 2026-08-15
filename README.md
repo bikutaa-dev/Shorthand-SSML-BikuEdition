@@ -610,14 +610,3 @@ This is a cheat sheet on how to create tone sounding sounds by using the Expleti
 
 
 ---
-### Documentation site (dark mode + sidebar)
-
-This repo includes a docs site using the Just the Docs theme:
-
-- Sidebar navigation and a dark color scheme are enabled.
-- Docs homepage: `docs/index.md` (copy of this README).
-- Audio examples: `docs/examples/audio.md` (put files under `docs/audio/`).
-- Enable GitHub Pages: Settings → Pages → Source: “Deploy from a branch”, Branch: `main`, Folder: `/docs`.
-- Then open your repository’s Pages URL to view the site.
-
----
