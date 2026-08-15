@@ -4,12 +4,21 @@ title: Shorthand SSML for Bikubot
 nav_order: 1
 ---
 
+# Shorthand SSML for Bikubot
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
+
 {% raw %}
 <!-- AUTO-GENERATED FROM ROOT README.md (manual copy).
      Edit the root README and re-copy here when content changes. -->
 {% endraw %}
 
-# Updates
+## Updates
 
 **v2** \
 With shorthand V2 the system moves from using one character to represent an effect to using two, this is to make the letter combination make more sense and open up more "slots" for future effects.
@@ -25,34 +34,7 @@ Down below you can also find the 6 new effects added this time around. These eff
     - [_Robot_](#robot)
 
 ---
-  
-  # **Shorthand SSML for Bikubot**
-- [**Shorthand SSML for Bikubot**](#shorthand-ssml-for-bikubot)
-  - [_What is this_](#what-is-this)
-  - [_How it works_](#how-it-works)
-  - [_Short Notes_](#short-notes)
-  - [_Modifications_](#modifications)
-    - [_Break_](#break)
-    - [_Emphasis_](#emphasis)
-    - [_Echo_](#echo)
-    - [_Expletive/Beep_](#expletivebeep)
-    - [_IPA (International Phonetic Alphabet)_](#ipa-international-phonetic-alphabet)
-    - [_Language_](#language)
-    - [_Max Duration_](#max-duration)
-    - [_Megaphone_](#megaphone)
-    - [_Minified_](#minified)
-    - [_Muffler_](#muffler)
-    - [_Pitch_](#pitch)
-    - [_Soft_](#soft)
-    - [_Rate_](#rate)
-    - [_Reverb_](#reverb)
-    - [_Robot_](#robot)
-    - [_Timbre_](#timbre)
-    - [_Volume_](#volume)
-    - [_Whisper_](#whisper)
-  - [Special Effects](#special-effects)
-    - [_Breath_](#breath)
-    - [_Tones_](#tones)
+---
 
 ---
 ## _What is this_
