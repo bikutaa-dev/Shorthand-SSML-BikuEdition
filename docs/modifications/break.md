@@ -28,3 +28,11 @@ Break is represented by the code **_br_** and supports either a following numeri
   * **Numeric:** \
         **_#br1.2[A test]_** is equal to **_&lt;break strength=”1200ms” />A test_** \
         **_#br.5[]_** is equal to **_&lt;break strength=”500ms” />_**
+
+* **Audio Example**
+    * **Text:** 3 second break #br3[] before it keeps going
+    * <audio controls preload="none">
+        <source src="../audio/break_tts.wav" type="audio/wav" />
+        Your browser does not support the audio element. Download:
+        <a href="../audio/break_tts.wav">WAV</a>
+    </audio>
