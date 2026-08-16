@@ -28,7 +28,7 @@ Timbre is represented by the code **_ti_** and supports either a following numer
         **_#ti50[A test]_** is equal to **_&lt;amazon:effect vocal-tract-length="50%">A test&lt;/amazon:effect>_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** Did you know, #ti175[That I can change my timbre]. #ti65[both up and down].
     * <audio controls preload="none">
         <source src="../audio/timbre_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

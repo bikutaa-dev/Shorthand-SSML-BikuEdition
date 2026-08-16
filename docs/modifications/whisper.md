@@ -15,7 +15,7 @@ Is represented by the code **_wh_** and does not need any additional data. The S
     **_#wh[A test]_** is equal to **_&lt;amazon:effect name="whispered">A test&lt;/amazon:effect>_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** hey,  come over here! #wh[we can't let the others know of the plan.]
     * <audio controls preload="none">
         <source src="../audio/whisper_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

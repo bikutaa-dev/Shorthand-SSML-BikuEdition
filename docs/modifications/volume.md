@@ -30,7 +30,7 @@ Volume is represented by the code **_vo_** and supports either a following numer
         **_#vo4[A test]_** is equal to **_&lt;prosody rate=”-6db”>A test&lt;/prosody>_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** I can also #vo+[raise my volume] as well as #vo-[lower my volume]
     * <audio controls preload="none">
         <source src="../audio/volume_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:
