@@ -15,7 +15,7 @@ IPA is represented by the code **_ip_** and followed by encapsulated in () the p
     **_#ip(pɪˈkɑːn)[A test]_** is equal to **_&lt;phoneme alphabet="ipa" ph="pɪˈkɑːn">pecan&lt;/phoneme>_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** I could say pecan, but I could pronounce it better with  #ip(pɪˈkɑːn)[pecan]
     * <audio controls preload="none">
         <source src="../audio/ipa_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

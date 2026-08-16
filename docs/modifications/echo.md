@@ -21,7 +21,7 @@ Echo is represented by the code **_ec_** and needs a following number between 1 
     **_#ec4[A test]_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** #ec3[hey, I think there is echo in this place?]
     * <audio controls preload="none">
         <source src="../audio/echo_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

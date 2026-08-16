@@ -19,7 +19,7 @@ Minified is represented by the code **_mi_**. There is no SSML equivalence.
     **_#mi[A test]_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** No, dont do that! #mi[oh no, Look at what you did, I am now small]
     * <audio controls preload="none">
         <source src="../audio/minified_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

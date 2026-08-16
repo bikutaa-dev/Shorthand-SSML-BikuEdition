@@ -21,7 +21,7 @@ Megaphone is represented by the code **_me_** and needs a following numeric sele
     **_#me2[A test]_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** Hey look what i found, #me2[there is a megaphone right here]
     * <audio controls preload="none">
         <source src="../audio/megaphone_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

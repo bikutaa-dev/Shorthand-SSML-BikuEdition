@@ -206,7 +206,7 @@ Language is represented by the code **_la_** and followed by encapsulated in **_
         **_#la(en-us)[A test]_** is equal to **_&lt;lang xml:lang="en-US">A test&lt;/lang>_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** I could say Gomenasai, but I pronounce it better with #la(ja-jp)[ごめんなさい]
     * <audio controls preload="none">
         <source src="../audio/language_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

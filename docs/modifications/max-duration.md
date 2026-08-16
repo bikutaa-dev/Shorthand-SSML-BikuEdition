@@ -19,10 +19,3 @@ Max duration is represented by the code **_du_** and needs a following numeric v
 * **Example**
     **_#du5.3[A test]_** is equal to **_&lt;prosody amazon:max-duration="5300ms">A test&lt;/prosody>_** /
     **_#du.5[A test]_** is equal to **_&lt;prosody amazon:max-duration="500ms">A test&lt;/prosody>_** /
-
-* **Audio Example**
-    * **Text:**
-    * <audio controls preload="none">
-        <source src="../audio/max-duration_tts.wav" type="audio/wav" />
-        Your browser does not support the audio element. Download:
-        <a href="../audio/max-duration_tts.wav">WAV</a></audio>
