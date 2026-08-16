@@ -30,7 +30,7 @@ Pitch is represented by the code **_pi_** and supports either a following numeri
         **_#pi150[A test]_** is equal to **_&lt;prosody pitch=”50%”>A test&lt;/prosody>_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** I could, #pi150[pitch my voice right up] or maybe I will, #pi50[pitch my voice way down]
     * <audio controls preload="none">
         <source src="../audio/pitch_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:

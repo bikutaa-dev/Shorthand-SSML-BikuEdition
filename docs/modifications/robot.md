@@ -21,7 +21,7 @@ Robot is represented by the code **_ro_** and needs a following numeric selector
     **_#ro2[A test]_**
 
 * **Audio Example**
-    * **Text:**
+    * **Text:** #ro2[Sir, We are ready to execute order 66]
     * <audio controls preload="none">
         <source src="../audio/robot_tts.wav" type="audio/wav" />
         Your browser does not support the audio element. Download:
