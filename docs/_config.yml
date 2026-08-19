@@ -7,8 +7,7 @@ color_scheme: dark
 search_enabled: true
 nav_enabled: true
 
-ga_tracking: G-XXXXXXXXXX
-ga_tracking_anonymize_ip: true
+ga_tracking: G-LEMTH9RB29
 aux_links:
   "GitHub Repository":
     - "https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition"
