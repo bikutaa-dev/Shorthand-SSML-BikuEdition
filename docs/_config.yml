@@ -6,6 +6,9 @@ remote_theme: just-the-docs/just-the-docs
 color_scheme: dark
 search_enabled: true
 nav_enabled: true
+
+ga_tracking: G-XXXXXXXXXX
+ga_tracking_anonymize_ip: true
 aux_links:
   "GitHub Repository":
     - "https://github.com/bikutaa-dev/Shorthand-SSML-BikuEdition"
